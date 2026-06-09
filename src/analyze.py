@@ -74,7 +74,9 @@ def compute(master: pd.DataFrame, summary: pd.DataFrame) -> Dict[str, Any]:
             continue
         ya = sub["years_after_launch"]
         clk = sub["clock_year"]
-        back_half = (ya > clk / 2).sum()
+        # "back half" = the latter half of the PRE-clock window, (clock/2, clock),
+        # kept disjoint from the after-clock share below (no boundary double-count).
+        back_half = ((ya > clk / 2) & (ya < clk)).sum()
         after = (sub["is_after_clock"] == True).sum()  # noqa: E712
         dist[mod] = {
             "n_indications": int(len(sub)),
@@ -190,9 +192,9 @@ def write_findings(out: Dict[str, Any]) -> str:
 
     A("## 2. When do new indications land? (by modality, 40 negotiated drugs)\n")
     A(f"_Computation: {d['n_events']} efficacy-supplement events across the 40 negotiated drugs; "
-      f"`% after clock` = share with `years_after_launch ≥ clock_year`; `% back half` = share with "
-      f"`years_after_launch > clock_year/2`._\n")
-    A("| Modality | # indications | mean yrs | median yrs | % in back half of clock window | % after clock |")
+      f"`% after clock` = share with `years_after_launch ≥ clock_year`; `% in back half of pre-clock window` = "
+      f"share with `clock_year/2 < years_after_launch < clock_year` (disjoint from after-clock)._\n")
+    A("| Modality | # indications | mean yrs | median yrs | % in back half of pre-clock window | % after clock |")
     A("|---|---|---|---|---|---|")
     if sm:
         A(f"| Small molecule (clock yr 9) | {sm['n_indications']} | {sm['mean_years']} | {sm['median_years']} | {sm['pct_back_half']}% | {sm['pct_after_clock']}% |")

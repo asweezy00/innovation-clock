@@ -1,6 +1,6 @@
 {
-  "retrieved": "2026-06-07",
-  "method": "Compiled from primary sources (CMS, KFF, Congress.gov, CRS, Public Citizen, PhRMA, Sidley/Jones Day legal analyses) and cross-checked against the underlying documents.",
+  "retrieved": "2026-06-09",
+  "method": "Compiled from primary sources (CMS, KFF, Congress.gov, CRS, Public Citizen, PhRMA, Sidley/Jones Day legal analyses) and cross-checked against the underlying documents. Re-verified 2026-06-09: all 25 published MFPs (Cycles 1-2), all three cycle drug lists, program dates, and 10 sampled FDA anchor approval dates checked against CMS fact sheets, govinfo bill-status XML, and Drugs@FDA.",
   "facts": [
     {
       "topic": "IRA timing rule (pill penalty)",
@@ -24,12 +24,12 @@
       "numeric_value": "11-year selection / 13-year MFP",
       "source_url": "https://www.congress.gov/bill/119th-congress/house-bill/1492",
       "source_org": "U.S. Congress (Congress.gov)",
-      "source_date": "2025-02-25"
+      "source_date": "2025-02-21"
     },
     {
       "topic": "EPIC Act status",
-      "statement": "H.R. 1492 (EPIC Act) was introduced February 25, 2025 with a Senate companion (S. 832); as of 2026 it remains pending and has not been enacted.",
-      "numeric_value": "Introduced Feb 25, 2025; pending",
+      "statement": "H.R. 1492 (EPIC Act) was introduced February 21, 2025 by Rep. Greg Murphy (press release Feb 25) with a Senate companion (S. 832, introduced March 4, 2025); as of mid-2026 both remain pending in committee and have not been enacted.",
+      "numeric_value": "Introduced Feb 21, 2025; pending",
       "source_url": "https://murphy.house.gov/media/press-releases/murphy-introduces-legislation-eliminate-ira-pill-penalty-and-improve-small",
       "source_org": "Office of Rep. Greg Murphy",
       "source_date": "2025-02-25"
@@ -52,11 +52,11 @@
     },
     {
       "topic": "OBBBA orphan cost (CBO)",
-      "statement": "The Congressional Budget Office estimated the OBBBA's expanded orphan-drug exemption would cost Medicare about $8.8 billion over ten years.",
-      "numeric_value": "$8.8B over 10 years",
-      "source_url": "https://www.fiercehealthcare.com/regulatory/expanded-price-negotiation-exemption-orphan-drugs-cost-medicare-88b-over-10-years-cbo",
-      "source_org": "Fierce Healthcare (citing CBO)",
-      "source_date": "2025-07-01"
+      "statement": "The Congressional Budget Office's revised estimate (Oct 20, 2025, publication 61818) puts the cost of the OBBBA's expanded orphan-drug exemption at about $8.8 billion over ten years; CBO's original at-enactment estimate was roughly $4.9 billion.",
+      "numeric_value": "$8.8B over 10 years (revised; ~$4.9B at enactment)",
+      "source_url": "https://www.cbo.gov/publication/61818",
+      "source_org": "Congressional Budget Office",
+      "source_date": "2025-10-20"
     },
     {
       "topic": "Critics: pill penalty is a 'myth'",
@@ -76,7 +76,7 @@
     },
     {
       "topic": "Critics: small-molecule subset",
-      "statement": "Public Citizen further states that 6 of the 8 (75%) small-molecule drugs selected for 2026 — more than $11B in annual Medicare spending — would have been excluded under an EPIC-style delay.",
+      "statement": "Public Citizen further states that 6 of the 8 (75%) small-molecule drugs selected in 2026 for the third round (Cycle 3 / IPAY 2028) — more than $11B in annual Medicare spending — would have been excluded under an EPIC-style delay.",
       "numeric_value": "6 of 8 (75%); >$11B",
       "source_url": "https://www.citizen.org/article/epic-act-would-be-a-multi-billion-dollar-pharma-windfall-at-the-expense-of-seniors/",
       "source_org": "Public Citizen",

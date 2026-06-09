@@ -13,18 +13,18 @@ Drugs gaining an indication in years 7–9: Biktarvy, Calquence, Entresto, Farxi
 
 ## 2. When do new indications land? (by modality, 40 negotiated drugs)
 
-_Computation: 289 efficacy-supplement events across the 40 negotiated drugs; `% after clock` = share with `years_after_launch ≥ clock_year`; `% back half` = share with `years_after_launch > clock_year/2`._
+_Computation: 268 efficacy-supplement events across the 40 negotiated drugs; `% after clock` = share with `years_after_launch ≥ clock_year`; `% in back half of pre-clock window` = share with `clock_year/2 < years_after_launch < clock_year` (disjoint from after-clock)._
 
-| Modality | # indications | mean yrs | median yrs | % in back half of clock window | % after clock |
+| Modality | # indications | mean yrs | median yrs | % in back half of pre-clock window | % after clock |
 |---|---|---|---|---|---|
-| Small molecule (clock yr 9) | 186 | 6.03 | 5.8 | 64.0% | 19.4% |
-| Biologic (clock yr 13) | 103 | 11.77 | 10.06 | 63.1% | 36.9% |
+| Small molecule (clock yr 9) | 167 | 6.01 | 5.84 | 44.3% | 19.2% |
+| Biologic (clock yr 13) | 101 | 11.66 | 9.03 | 26.7% | 35.6% |
 
-Across the 40 negotiated drugs, **25.6% of new indications** (289 events) were approved *after* the drug's negotiation clock would already be in effect.
+Across the 40 negotiated drugs, **25.4% of new indications** (268 events) were approved *after* the drug's negotiation clock would already be in effect.
 
 ## 3. Medicare spend represented
 
-The 40 negotiated drugs account for **$107.5B** in 2023 gross Medicare spending (Part D + Part B), computed from CMS Spending-by-Drug data — **not** CMS's official per-cycle totals, which use different 12-month windows. (Broader 64-drug union, for context: $149.3B.)
+The 40 negotiated drugs account for **$112.2B** in 2023 gross Medicare spending (Part D + Part B), computed from CMS Spending-by-Drug data — **not** CMS's official per-cycle totals, which use different 12-month windows. (Broader 64-drug union, for context: $156.2B.)
 
 ## 4. Rare-disease (orphan) cut
 
@@ -44,7 +44,7 @@ Orphan/non-orphan basis for each multi-orphan candidate:
 
 ## 5. Balance check — what an EPIC-style 11-year rule would do
 
-EPIC moves **only the small-molecule** selection clock (yr 7 → 11); biologics are already at yr 11 and are **unaffected**, so they cannot be removed by EPIC. Of the **30 negotiated small molecules**, **19** were less than 11 years past first approval at their selection date — i.e. they would have been **unreachable** under an 11-year rule — representing **$65.7B** of 2023 Medicare spend.
+EPIC moves **only the small-molecule** selection clock (yr 7 → 11); biologics are already at yr 11 and are **unaffected**, so they cannot be removed by EPIC. Of the **30 negotiated small molecules**, **19** were less than 11 years past first approval at their selection date — i.e. they would have been **unreachable** under an 11-year rule — representing **$67.6B** of 2023 Medicare spend.
 
 Per cycle (small molecules only):
 - Cycle 1: 5 of 7 small molecules blocked.

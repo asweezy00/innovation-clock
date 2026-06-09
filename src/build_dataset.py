@@ -43,8 +43,9 @@ def assemble(top_n: int = 50, with_orphan: bool = True,
             unresolved.append(f"{brand} ({generic})")
             warnings.append(f"[unresolved] {brand}: 0 originator apps / no ORIG-AP date")
 
-        part_d = fetch_cms.spend_for(brand, generic, "part_d")
-        part_b = fetch_cms.spend_for(brand, generic, "part_b")
+        aliases = d.get("aliases")
+        part_d = fetch_cms.spend_for(brand, generic, "part_d", aliases=aliases)
+        part_b = fetch_cms.spend_for(brand, generic, "part_b", aliases=aliases)
         if part_d is None and d.get("part_d_spend_hint"):
             part_d = d["part_d_spend_hint"]
         total_spend = sum(x for x in (part_d, part_b) if x)

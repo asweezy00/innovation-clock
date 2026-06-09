@@ -13,9 +13,9 @@ This project maps every new FDA-approved indication for a cohort of high-spend M
 *(2023 Medicare gross spending; reproduced by `python -m src.analyze` — see [`docs/FINDINGS.md`](docs/FINDINGS.md))*
 
 - **20 of 30** negotiated small-molecule drugs gained a brand-new FDA indication in their **year 7–9 window** — the very years the negotiation clock truncates for pills.
-- **25.6%** of new *indications* (289 events across the 40 negotiated drugs) were approved *after* the drug's negotiation clock would already be in effect (small molecule 19.4%, biologic 36.9%).
-- The 40 negotiated drugs represent **~$107.5B** of 2023 gross Medicare spending (our aggregation of CMS Spending-by-Drug data, Part D + Part B).
-- **19 of the 30 negotiated small molecules** (**$65.7B**) would have been *unreachable* under an EPIC-style 11-year selection rule (biologics are unaffected by EPIC). Per cycle: 5/7, 8/15, 6/8 — consistent with Public Citizen's "5 of the first 10, 8 of the next 15" blocked drugs.
+- **25.4%** of new *indications* (268 events across the 40 negotiated drugs) were approved *after* the drug's negotiation clock would already be in effect (small molecule 19.2%, biologic 35.6%).
+- The 40 negotiated drugs represent **~$112.2B** of 2023 gross Medicare spending (our aggregation of CMS Spending-by-Drug data, Part D + Part B, summed across each drug's full negotiated brand family).
+- **19 of the 30 negotiated small molecules** (**$67.6B**) would have been *unreachable* under an EPIC-style 11-year selection rule (biologics are unaffected by EPIC). Per cycle: 5/7, 8/15, 6/8 — consistent with Public Citizen's "5 of the first 10, 8 of the next 15" blocked drugs.
 - **4** negotiated drugs are strict "serial-orphan" (multiple rare-disease indications, no non-orphan approval) and would be exempt under the One Big Beautiful Bill Act: Calquence, Imbruvica, Ofev, Pomalyst. (Lenvima is excluded — it also treats non-orphan renal cell and endometrial carcinoma.)
 
 **The data cut both ways:** small molecules genuinely keep earning new indications inside the truncated window (the innovation-incentive argument), yet equalizing the clock with biologics would pull tens of billions of high-spend drugs out of negotiation (the affordability argument).

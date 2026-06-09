@@ -35,25 +35,25 @@
  ],
  "distribution": {
   "small molecule": {
-   "n_indications": 186,
-   "mean_years": 6.03,
-   "median_years": 5.8,
-   "pct_back_half": 64.0,
-   "pct_after_clock": 19.4
+   "n_indications": 167,
+   "mean_years": 6.01,
+   "median_years": 5.84,
+   "pct_back_half": 44.3,
+   "pct_after_clock": 19.2
   },
   "biologic": {
-   "n_indications": 103,
-   "mean_years": 11.77,
-   "median_years": 10.06,
-   "pct_back_half": 63.1,
-   "pct_after_clock": 36.9
+   "n_indications": 101,
+   "mean_years": 11.66,
+   "median_years": 9.03,
+   "pct_back_half": 26.7,
+   "pct_after_clock": 35.6
   }
  },
- "n_events": 289,
- "pct_all_after_clock": 25.6,
+ "n_events": 268,
+ "pct_all_after_clock": 25.4,
  "spend_year": 2023,
- "negotiated_total_spend": 107537176985.84003,
- "union_total_spend": 149314068351.75,
+ "negotiated_total_spend": 112154901261.65,
+ "union_total_spend": 156211603361.68,
  "negotiated_with_orphan": 19,
  "negotiated_multi_orphan": 12,
  "multi_orphan_drugs": [
@@ -187,7 +187,7 @@
    3
   ]
  ],
- "epic_blocked_spend": 65735184968.98,
+ "epic_blocked_spend": 67553961677.00001,
  "epic_by_cycle": {
   "1": {
    "n_sm": 7,

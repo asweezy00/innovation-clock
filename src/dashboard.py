@@ -186,6 +186,11 @@ HTML = r"""<!DOCTYPE html>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>The Innovation Clock — Medicare drug timing</title>
+<meta name="description" content="When do America's most expensive Medicare drugs earn new FDA indications — and how does that collide with the IRA's price-negotiation clock (year 9 small molecule vs year 13 biologic)? Interactive timelines for all 40 negotiated drugs."/>
+<meta property="og:title" content="The Innovation Clock — FDA indications vs. the Medicare negotiation deadline"/>
+<meta property="og:description" content="Interactive timelines of every new FDA indication for the 40 IRA-negotiated drugs, overlaid on the year-9 / year-13 negotiation clock. Reproducible pipeline, open data."/>
+<meta property="og:type" content="website"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%231b6ca8'/%3E%3Cpath d='M16 8v8l6 4' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E"/>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <style>
   :root{--sm:#1b6ca8;--bio:#d4761f;--ink:#222;--muted:#666;--clock:#444;--after:#e8b4b8;
@@ -216,6 +221,7 @@ HTML = r"""<!DOCTYPE html>
   .sub{color:var(--muted);font-size:13px;margin-top:4px;max-width:840px}
   .controls{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:16px 30px 0}
   select,button.ctl{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);cursor:pointer}
+  select:disabled{opacity:.45;cursor:default}
   button.ctl.active{background:var(--ink);color:#fff;border-color:var(--ink)}
   .wrap{display:flex;gap:22px;padding:22px 30px;flex-wrap:wrap}
   .panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
@@ -345,8 +351,13 @@ const tip = d3.select("#tip");
 const sel = d3.select("#drug");
 resolved.slice().sort((a,b)=> (a.in_negotiated===b.in_negotiated? d3.ascending(a.brand,b.brand) : (a.in_negotiated?-1:1)))
   .forEach(d => sel.append("option").attr("value", d.brand).text(d.brand + (d.in_negotiated? "  •" : "")));
+if (resolved.some(d=>d.brand==="Imbruvica")) sel.property("value","Imbruvica"); // story-rich default
 
 let mode = "single";
+function syncControls(){
+  d3.select("#drug").property("disabled", mode!=="single");
+  d3.select("#sortby").property("disabled", mode!=="compare");
+}
 function showTip(html, ev){tip.html(html).style("left",(ev.pageX+12)+"px").style("top",(ev.pageY+12)+"px").style("opacity",1);}
 function hideTip(){tip.style("opacity",0);}
 function indYears(d){return d.indications.map(i=>i.years_after_launch).filter(v=>v!=null);}
@@ -355,7 +366,7 @@ function lastYear(d){const y=indYears(d); return y.length?Math.max(...y):0;}
 function single(brand){
   const d = resolved.find(x=>x.brand===brand) || resolved[0];
   drawTimeline([d], {height: 150, single:true});
-  d3.select("#chart-note").html(`Showing <b>${d.brand}</b> (${d.generic}). Dots = new FDA indications; diamond = year-${d.clock_year} negotiation clock.`);
+  d3.select("#chart-note").html(`Showing <b>${d.brand}</b> (${d.generic}). Dots = new FDA indications; diamond = year-${d.clock_year} negotiation clock; shading = price-controlled period for this drug.`);
   drawSide(d);
 }
 function compare(){
@@ -364,27 +375,44 @@ function compare(){
   if(sortby==="last") ds.sort((a,b)=> d3.descending(lastYear(a), lastYear(b)));
   else if(sortby==="spend") ds.sort((a,b)=> d3.descending(a.total_spend||0, b.total_spend||0));
   else ds.sort((a,b)=> d3.ascending(a.modality==="small molecule"?0:1, b.modality==="small molecule"?0:1) || d3.ascending(a.original_approval_date,b.original_approval_date));
-  drawTimeline(ds, {height: Math.max(360, ds.length*17+60)});
-  d3.select("#chart-note").html(`All <b>${ds.length}</b> IRA-negotiated drugs (Cycles 1–3). Each lane is a drug from approval (left) to its most recent new indication.`);
+  drawTimeline(ds, {height: Math.max(360, ds.length*17+60), grouped: sortby==="modality"});
+  d3.select("#chart-note").html(`All <b>${ds.length}</b> IRA-negotiated drugs (Cycles 1–3). Each lane runs from first approval (left) to its most recent new indication; shading starts at <i>that drug's</i> negotiation clock (yr 9 pill · yr 13 biologic).`);
   d3.select("#side").html(sideSummary());
 }
 function drawTimeline(ds, opts){
-  const W = Math.min(880, (document.querySelector('.main').clientWidth||820)-36);
   const m = {top:24,right:18,bottom:34,left:118};
+  const W = Math.max(m.left+m.right+104, Math.min(880, (document.querySelector('.main').clientWidth||820)-36));
   const rowH = opts.single? 60 : 17;
-  const H = opts.single? 150 : ds.length*rowH + m.top + m.bottom;
-  const xMax = Math.min(28, Math.max(14, d3.max(ds, d=>Math.max(lastYear(d), d.clock_year))+1));
+  const grouped = !!opts.grouped && ds.some(d=>d.modality==="biologic") && ds[0].modality!=="biologic";
+  const GAP = grouped ? 30 : 0;   // breathing room between the SM and biologic blocks
+  const H = opts.single? 150 : ds.length*rowH + m.top + m.bottom + GAP;
+  const xMax = Math.max(14, Math.ceil(d3.max(ds, d=>Math.max(lastYear(d), d.clock_year)))+1);
   d3.select("#chart").html("");
   const svg = d3.select("#chart").append("svg").attr("width",W).attr("height",H);
   const x = d3.scaleLinear().domain([0,xMax]).range([m.left, W-m.right]);
-  const y = d3.scaleBand().domain(ds.map(d=>d.brand)).range([m.top, H-m.bottom]).padding(0.35);
-  svg.append("rect").attr("x",x(9)).attr("y",m.top-6).attr("width",x(xMax)-x(9)).attr("height",H-m.bottom-m.top+6).attr("fill",C.after).attr("opacity",0.10);
+  const y0 = d3.scaleBand().domain(ds.map(d=>d.brand)).range([m.top, H-m.bottom-GAP]).padding(0.35);
+  const off = {}; ds.forEach(d=> off[d.brand] = (grouped && d.modality==="biologic") ? GAP : 0);
+  const y = b => y0(b) + off[b]; y.bandwidth = () => y0.bandwidth();
+  const soloClock = opts.single ? ds[0].clock_year : null;
+  if(opts.single){
+    svg.append("rect").attr("x",x(soloClock)).attr("y",m.top-6)
+      .attr("width",Math.max(0,x(xMax)-x(soloClock))).attr("height",H-m.bottom-m.top+6)
+      .attr("fill",C.after).attr("opacity",0.18);
+  }
   [[9,C.sm,"yr 9"],[13,C.bio,"yr 13"]].forEach(([v,c,t])=>{
-    svg.append("line").attr("x1",x(v)).attr("x2",x(v)).attr("y1",m.top-6).attr("y2",H-m.bottom).attr("stroke",c).attr("stroke-dasharray","2,2").attr("opacity",0.6);
-    svg.append("text").attr("x",x(v)).attr("y",m.top-10).attr("text-anchor","middle").attr("font-size",10).attr("fill",c).text(t);
+    const relevant = soloClock==null || v===soloClock;
+    svg.append("line").attr("x1",x(v)).attr("x2",x(v)).attr("y1",m.top-6).attr("y2",H-m.bottom)
+      .attr("stroke",c).attr("stroke-dasharray","2,2").attr("opacity",relevant?0.6:0.2);
+    svg.append("text").attr("x",x(v)).attr("y",m.top-10).attr("text-anchor","middle").attr("font-size",10)
+      .attr("fill",c).attr("opacity",relevant?1:0.45).text(t);
   });
   ds.forEach(d=>{
     const yy = y(d.brand)+y.bandwidth()/2;
+    if(!opts.single){ // per-lane price-controlled shading from THIS drug's clock
+      svg.append("rect").attr("x",x(d.clock_year)).attr("y",y(d.brand))
+        .attr("width",Math.max(0,x(xMax)-x(d.clock_year))).attr("height",y.bandwidth())
+        .attr("fill",C.after).attr("opacity",0.30);
+    }
     svg.append("line").attr("x1",x(0)).attr("x2",x(Math.max(lastYear(d),d.clock_year))).attr("y1",yy).attr("y2",yy).attr("stroke","#ddd").attr("stroke-width",1);
     svg.append("line").attr("x1",x(0)).attr("x2",x(0)).attr("y1",yy-5).attr("y2",yy+5).attr("stroke",color(d)).attr("stroke-width",2);
     svg.selectAll(null).data(d.indications.filter(i=>i.years_after_launch!=null)).enter().append("circle")
@@ -394,26 +422,45 @@ function drawTimeline(ds, opts){
       .on("mousemove",(ev,i)=>showTip(`${d.brand}: new indication at <b>${i.years_after_launch.toFixed(1)} yrs</b> (${i.date})${i.years_after_launch>=d.clock_year?" — after clock":""}`,ev)).on("mouseleave",hideTip);
     svg.append("path").attr("transform",`translate(${x(d.clock_year)},${yy})`).attr("d",d3.symbol(d3.symbolDiamond, opts.single?90:42)()).attr("fill",C.clock)
       .on("mousemove",ev=>showTip(`${d.brand}: negotiation clock at year ${d.clock_year} (${d.modality})`,ev)).on("mouseleave",hideTip);
-    svg.append("text").attr("x",m.left-8).attr("y",yy).attr("dy","0.32em").attr("text-anchor","end").attr("class","row-label").attr("font-size",opts.single?12:10).text(d.brand);
+    svg.append("text").attr("x",m.left-8).attr("y",yy).attr("dy","0.32em").attr("text-anchor","end").attr("class","row-label")
+      .attr("font-size",opts.single?12:10).attr("fill", opts.single? "#222" : color(d)).text(d.brand);
   });
+  if(grouped){ // labelled gap between the small-molecule and biologic blocks
+    const firstBio = ds.find(d=>d.modality==="biologic");
+    const g0 = y0(firstBio.brand);           // gap spans [g0, g0+GAP]
+    svg.append("line").attr("x1",m.left-110).attr("x2",W-m.right).attr("y1",g0+GAP/2).attr("y2",g0+GAP/2)
+      .attr("stroke","#ccc").attr("stroke-dasharray","4,3");
+    svg.append("text").attr("x",W-m.right).attr("y",g0+GAP/2-4).attr("text-anchor","end").attr("font-size",9.5)
+      .attr("fill",C.sm).attr("font-weight",700).text("▲ SMALL MOLECULES · clock yr 9");
+    svg.append("text").attr("x",W-m.right).attr("y",g0+GAP/2+12).attr("text-anchor","end").attr("font-size",9.5)
+      .attr("fill",C.bio).attr("font-weight",700).text("▼ BIOLOGICS · clock yr 13");
+  }
   svg.append("g").attr("class","axis").attr("transform",`translate(0,${H-m.bottom})`).call(d3.axisBottom(x).ticks(8).tickFormat(d=>d+"y"));
   svg.append("text").attr("x",(m.left+W-m.right)/2).attr("y",H-2).attr("text-anchor","middle").attr("font-size",11).attr("fill","#666").text("Years after first FDA approval");
 }
 function drawSide(d){
   const cyc = d.ira_cycle ? `Cycle ${d.ira_cycle}` : "not negotiated";
-  const mfp = d.mfp_usd!=null ? fmt$(d.mfp_usd)+" / mo" : (d.ira_cycle===3? "pending (2026)" : "n/a");
+  const mfp = d.mfp_usd!=null ? fmt$(d.mfp_usd)+" / 30-day supply" : (d.ira_cycle===3? "pending — published by Nov 2026" : "n/a");
   const inWindow = indYears(d).some(v=> v>=d.clock_year-2 && v<=d.clock_year);
   const afterN = indYears(d).filter(v=>v>=d.clock_year).length;
+  const inds = d.indications.filter(i=>i.years_after_launch!=null).slice().sort((a,b)=>d3.descending(a.years_after_launch,b.years_after_launch));
+  const shown = inds.slice(0,5);
+  const indList = shown.length ? `
+    <div class="stat"><div class="k">Most recent indications</div>
+      <div style="font-size:12px;line-height:1.7">${shown.map(i=>
+        `<span style="color:${i.years_after_launch>=d.clock_year?'#b3403f':'#666'}">${i.date}</span> · yr ${i.years_after_launch.toFixed(1)}${i.years_after_launch>=d.clock_year?' <b style="color:#b3403f">after clock</b>':''}`).join("<br>")}
+      ${inds.length>5?`<span style="color:#999">… +${inds.length-5} earlier</span>`:""}</div></div>` : "";
   d3.select("#side").html(`
     <div class="stat"><div class="k">Modality</div><div class="v"><span class="pill ${d.modality==='biologic'?'bio':'sm'}">${d.modality}</span> · clock yr ${d.clock_year}</div></div>
     <div class="stat"><div class="k">First approval</div><div class="v">${d.original_approval_date||'—'} <span style="font-size:12px;color:#666">(${d.application_number||''})</span></div></div>
     <div class="stat"><div class="k">New indications</div><div class="v">${d.indications.length} total · ${afterN} after clock</div></div>
     <div class="stat"><div class="k">In yr ${d.clock_year-2}–${d.clock_year} window</div><div class="v">${inWindow?'Yes — gained value as the clock closed':'No'}</div></div>
     <div class="stat"><div class="k">IRA negotiation</div><div class="v">${cyc}</div></div>
-    <div class="stat"><div class="k">Maximum Fair Price</div><div class="v">${mfp}</div></div>
+    <div class="stat"><div class="k">Maximum Fair Price</div><div class="v" style="font-size:15px">${mfp}</div></div>
     <div class="stat"><div class="k">Medicare spend (${DATA.spend_year})</div><div class="v">${fmt$(d.total_spend)}</div>
       <div style="font-size:12px;color:#666">Part D ${fmt$(d.part_d_spend)} · Part B ${fmt$(d.part_b_spend)}</div></div>
     <div class="stat"><div class="k">Orphan status</div><div class="v" style="font-size:15px">${d.orphan_status.replace(/_/g,' ')}${d.serial_orphan_candidate?' · serial-orphan':''}</div></div>
+    ${indList}
   `);
 }
 function sideSummary(){
@@ -429,8 +476,9 @@ function sideSummary(){
 }
 function redrawDashboard(){ mode==="single" ? single(sel.property("value")) : compare(); }
 
-d3.select("#btn-single").on("click",()=>{mode="single";setBtns();single(sel.property("value"));});
-d3.select("#btn-compare").on("click",()=>{mode="compare";setBtns();compare();});
+d3.select("#btn-single").on("click",()=>{mode="single";setBtns();syncControls();single(sel.property("value"));});
+d3.select("#btn-compare").on("click",()=>{mode="compare";setBtns();syncControls();compare();});
+syncControls();
 sel.on("change",()=>{ if(mode==="single") single(sel.property("value")); });
 d3.select("#sortby").on("change",()=>{ if(mode==="compare") compare(); });
 function setBtns(){d3.select("#btn-single").classed("active",mode==="single");d3.select("#btn-compare").classed("active",mode==="compare");}

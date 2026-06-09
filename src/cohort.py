@@ -76,9 +76,10 @@ CYCLE3: List[Dict[str, Any]] = [
     {"brand": "Trulicity", "generic": "dulaglutide", "mfp_usd": None, "part": "Part D", "mfr": "Eli Lilly"},
     {"brand": "Verzenio", "generic": "abemaciclib", "mfp_usd": None, "part": "Part D", "mfr": "Eli Lilly"},
     {"brand": "Xeljanz", "generic": "tofacitinib", "mfp_usd": None, "part": "Part D", "mfr": "Pfizer", "aliases": ["Xeljanz XR"]},
-    # Xolair: classified Part B under the "majority of gross spending" definition;
-    # CMS's press release headlines only 4 Part B drugs (Botox/Cimzia/Orencia/Entyvio).
-    # See METHODOLOGY.md. Spend is looked up in BOTH Part B and Part D regardless.
+    # Xolair: classified Part B under the "majority of gross spending" definition.
+    # CMS published no official per-drug Part B/D split for Cycle 3; analyst counts
+    # differ (Avalere/Cardinal Health: 4 primarily-Part B drugs; Milliman: 5 incl.
+    # Xolair). See METHODOLOGY.md. Spend is looked up in BOTH Parts regardless.
     {"brand": "Xolair", "generic": "omalizumab", "mfp_usd": None, "part": "Part B", "mfr": "Genentech/Novartis", "first_part_b": "contested"},
 ]
 

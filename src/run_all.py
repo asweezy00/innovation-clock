@@ -89,7 +89,7 @@ def _summary(ds, s, fs):
     print("  • Cycle 3 (IPAY 2028) Maximum Fair Prices are not yet published (mfp_usd = null). Not invented.")
     print("  • 'New indications' = FDA efficacy supplements (a proxy; includes some population/line expansions).")
     print("  • 2 vaccine entries (Arexvy, Shingrix) unresolved: CMS antigen names don't map to FDA ingredients.")
-    print("  • Xolair Part B classification is contested (CMS headlines 4 Part B drugs); flagged in cohort.py.")
+    print("  • Xolair Part B classification is contested (CMS published no official Part B/D split; analysts differ); flagged in cohort.py.")
     print("  • Insulin aspart (NovoLog) resolves as a biologic due to FDA's 2020 insulin BLA transition.")
     print("  • Strict serial-orphan is a label-text heuristic (real OOPD data underneath). Industry figures")
     print("    (PhRMA/PHAR, Univ. of Chicago) are industry-sourced; KFF and NPC/Patterson are independent — all cited.")

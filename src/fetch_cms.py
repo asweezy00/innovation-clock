@@ -142,19 +142,54 @@ def top_part_d(n: int = 50) -> List[Dict[str, Any]]:
     return out
 
 
-def spend_for(brand: str, generic: str, part: str, threshold: int = 88) -> Optional[float]:
-    """Latest-year total spend for a drug via normalized + fuzzy name match."""
+def spend_for(brand: str, generic: str, part: str, aliases: Optional[List[str]] = None,
+              threshold: int = 88) -> Optional[float]:
+    """Latest-year total Medicare spend for the *negotiated unit* of a drug.
+
+    A CMS-negotiated drug is a brand FAMILY, not a single SKU: Part D 'Overall'
+    rows are split across device/strength variants (Enbrel / Enbrel Mini /
+    Enbrel SureClick) and, where CMS bundles them, across distinct brands of the
+    same molecule (Ozempic / Rybelsus / Wegovy; NovoLog / Fiasp). We therefore
+    SUM the family rather than taking one representative row.
+
+    A Part D 'Overall' row joins the unit when it is single-source (brand differs
+    from generic, excluding authorized generics and commodity rows) AND either
+      * its brand equals the drug's brand or a curated CMS-bundle alias, or
+      * its brand is a device/strength variant of one of those (``stem + ' ...'``)
+        carrying the SAME active ingredient (so the biphasic 'NovoLog Mix 70-30'
+        and the Kisqali-Femara co-pack, which have different ingredients, are
+        excluded).
+    Part B is HCPCS-coded with no manufacturer/Overall column, so its rows are
+    summed across the matched HCPCS codes (brand or generic match).
+    """
     from rapidfuzz import fuzz, process
 
     df = load_spending(part)
     if df.empty:
         return None
     nb, ng = util.normalize_name(brand), util.normalize_name(generic)
-    exact = df[(df["norm_brand"] == nb) | ((df["norm_generic"] == ng) & (ng != ""))]
-    if not exact.empty:
-        # Part B has multiple HCPCS rows per drug -> sum them; Part D 'Overall'
-        # rows are already one-per-drug -> sum == the single value.
-        return float(exact["spend"].sum() if part == "part_b" else exact["spend"].max())
+    stems = {nb} | {util.normalize_name(a) for a in (aliases or [])}
+    stems.discard("")
+
+    if part == "part_b":
+        # HCPCS rows: one drug spans several codes -> sum brand/generic matches.
+        rows = df[(df["norm_brand"].isin(stems)) | ((df["norm_generic"] == ng) & (ng != ""))]
+        if not rows.empty:
+            return float(rows["spend"].sum())
+    else:
+        single_source = df["norm_brand"] != df["norm_generic"]
+        exact = df["norm_brand"].isin(stems)
+        variant = df["norm_brand"].apply(lambda b: any(b.startswith(s + " ") for s in stems)) \
+            & (df["norm_generic"] == ng) & (ng != "")
+        fam = df[single_source & (exact | variant)]
+        if not fam.empty:
+            return float(fam["spend"].sum())
+        # fall back to a same-ingredient single-source match if brand naming differs
+        gen = df[single_source & (df["norm_generic"] == ng) & (ng != "")]
+        if not gen.empty:
+            return float(gen["spend"].sum())
+
+    # fuzzy fallback (rare): nearest brand, then nearest generic
     choices = df["norm_brand"].tolist()
     if nb and choices:
         best = process.extractOne(nb, choices, scorer=fuzz.token_sort_ratio)

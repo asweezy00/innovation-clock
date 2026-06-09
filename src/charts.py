@@ -80,9 +80,16 @@ def timeline(payload: Dict[str, Any], negotiated_only: bool = True,
         ax.scatter([clk], [y], s=26, marker="d", color=C_CLOCK, zorder=5)
         ax.text(-0.4, y, d["brand"], ha="right", va="center", fontsize=5.6, color=INK)
 
-    xmax = min(xmax + 1, 28)
-    # shade typical price-controlled regions (9+ and 13+) lightly as guides
-    ax.axvspan(9, xmax, color=C_AFTER, alpha=0.10, zorder=0)
+    xmax = xmax + 1  # never clip late indications (e.g. Botox at 32.9 yrs)
+    # shade each block's actual price-controlled region (SM from yr 9, biologic from yr 13)
+    n_sm = sum(1 for d in drugs if d["modality"] == "small molecule")
+    y_top = n + 2.4  # == ylim upper
+    if n_sm:
+        ax.axvspan(9, xmax, ymin=(n - n_sm + 0.5) / y_top, ymax=(n + 0.5) / y_top,
+                   color=C_AFTER, alpha=0.12, zorder=0)
+    if n_sm < n:
+        ax.axvspan(13, xmax, ymin=0.4 / y_top, ymax=(n - n_sm + 0.5) / y_top,
+                   color=C_AFTER, alpha=0.12, zorder=0)
     ax.axvline(9, color=C_SM, ls=":", lw=1.0, alpha=0.7)
     ax.axvline(13, color=C_BIO, ls=":", lw=1.0, alpha=0.7)
     ax.text(9, n + 1.0, "clock yr 9", color=C_SM, fontsize=6, ha="center")
@@ -144,13 +151,16 @@ def scatter(payload: Dict[str, Any], fname: str = "fig2_spend_vs_time") -> str:
 
 def histogram(payload: Dict[str, Any], fname: str = "fig3_distribution") -> str:
     fig, ax = plt.subplots(figsize=(7.6, 4.2))
-    bins = list(range(0, 29, 1))
+    by_mod = {}
+    for d in payload["drugs"]:
+        if not d["in_negotiated"] or not d["modality"]:  # 40 negotiated only
+            continue
+        by_mod.setdefault(d["modality"], []).extend(
+            iv["years_after_launch"] for iv in d["indications"] if iv["years_after_launch"] is not None)
+    top = int(max((max(v) for v in by_mod.values() if v), default=28)) + 2
+    bins = list(range(0, top, 1))  # extend past the oldest event so no indication is dropped
     for mod, col in (("small molecule", C_SM), ("biologic", C_BIO)):
-        vals = []
-        for d in payload["drugs"]:
-            if d["modality"] != mod or not d["in_negotiated"]:  # 40 negotiated only
-                continue
-            vals += [iv["years_after_launch"] for iv in d["indications"] if iv["years_after_launch"] is not None]
+        vals = by_mod.get(mod, [])
         ax.hist(vals, bins=bins, color=col, alpha=0.55, label=f"{mod} (n={len(vals)})")
     ax.axvline(9, color=C_SM, ls=":", lw=1.2)
     ax.axvline(13, color=C_BIO, ls=":", lw=1.2)

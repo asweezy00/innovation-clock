@@ -25,8 +25,15 @@ DRUGSFDA = "drug/drugsfda.json"
 LABEL = "drug/label.json"
 
 
-def _search(endpoint: str, expr: str, limit: int = 100) -> Dict[str, Any]:
-    """Cached openFDA search. ``expr`` is the value of the search= parameter."""
+def _search(endpoint: str, expr: str, limit: int = 1000) -> Dict[str, Any]:
+    """Cached openFDA search. ``expr`` is the value of the search= parameter.
+
+    ``limit`` is openFDA's maximum (1,000). Common shared ingredients (e.g.
+    metformin) can have more matching products than that, but originator
+    resolution does not depend on an exhaustive listing: each drug is searched
+    by every token in its own ingredient set, and combination/co-pack products
+    are excluded downstream by the exact-ingredient-set match in ``resolve_apps``.
+    """
     url = util.fda_url(endpoint, {"search": expr, "limit": limit})
     tag = util.slug(endpoint.split("/")[-1].replace(".json", "") + "__" + expr)
     cache = util.RAW_FDA / (tag + ".json")
@@ -96,13 +103,19 @@ def resolve_apps(drug: Dict[str, Any]) -> List[Dict[str, Any]]:
             matched.append(res)
             continue
         app_ings = _app_ingredient_set(res)
-        # Match when the expected ingredient set is contained in the app's
-        # ingredients (handles combos: both members must be present) OR the
-        # brand matches (covers odd ingredient spellings).
+        # Match when the app's ingredient set EXACTLY equals the drug's expected
+        # set, OR the brand matches (covers odd ingredient spellings). Exact
+        # equality (not subset) is deliberate and works both directions:
+        #   * a combination drug (Entresto = sacubitril+valsartan) must list BOTH
+        #     members, so valsartan-only products are excluded; and
+        #   * a single-ingredient drug (Jardiance = empagliflozin) does NOT absorb
+        #     fixed-dose combinations or co-packs that merely CONTAIN it
+        #     (Synjardy, Glyxambi, Trijardy, the Kisqali-Femara co-pack), whose
+        #     new indications belong to those distinct products, not to this drug.
         brand_hit = util.normalize_name(brand) in {
             util.normalize_name(b) for b in (res.get("openfda", {}).get("brand_name") or [])
         }
-        if (expected and expected <= app_ings) or brand_hit:
+        if (expected and expected == app_ings) or brand_hit:
             matched.append(res)
     return matched
 

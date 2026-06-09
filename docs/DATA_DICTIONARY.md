@@ -6,7 +6,7 @@ Two processed datasets are produced by `python -m src.build_dataset`. Spend figu
 
 ## `data/processed/innovation_clock_master.csv` — LONG
 
-One row per **(drug × indication event)**. A drug with zero efficacy supplements still gets a single row with null event fields, so no drug is dropped. **424 rows** in the current build.
+One row per **(drug × indication event)**. A drug with zero efficacy supplements still gets a single row with null event fields, so no drug is dropped. **396 rows** in the current build.
 
 | Column | Type | Description |
 |---|---|---|
@@ -25,8 +25,8 @@ One row per **(drug × indication event)**. A drug with zero efficacy supplement
 | `orphan_status` | string | `orphan_approved` / `designated_not_approved` / `none` / `unknown`. |
 | `ira_cycle` | int | IRA negotiation cycle (1, 2, 3) or blank if non-negotiated. |
 | `mfp_usd` | float | Maximum Fair Price (30-day-supply equivalent). Blank for Cycle 3 (not yet published) and non-negotiated drugs. |
-| `part_d_spend_latest_usd` | float | Medicare Part D gross spend, latest year. |
-| `part_b_spend_latest_usd` | float | Medicare Part B gross spend, latest year. |
+| `part_d_spend_latest_usd` | float | Medicare Part D gross spend, latest year — summed across the drug's full negotiated brand family (see METHODOLOGY §4). |
+| `part_b_spend_latest_usd` | float | Medicare Part B gross spend, latest year — summed across the drug's HCPCS rows. |
 | `spend_year` | int | Year the spend figures refer to (2023). |
 | `source_urls` | string | `; `-joined provenance URLs (CMS fact sheet + openFDA). |
 

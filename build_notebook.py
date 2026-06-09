@@ -118,8 +118,11 @@ yrs = lambda d: [i["years_after_launch"] for i in d["indications"] if i["years_a
 
 n = len(drugs)
 fig, ax = plt.subplots(figsize=(9, 0.23*n + 1.2))
-xmax = min(28, max(max(yrs(d) + [d["clock_year"]]) for d in drugs) + 1)
-ax.axvspan(9, xmax, color=C_AFTER, alpha=0.10)
+xmax = max(max(yrs(d) + [d["clock_year"]]) for d in drugs) + 1  # never clip late indications
+n_sm = sum(1 for d in drugs if d["modality"] == "small molecule")
+# shade each block's actual price-controlled region (SM from yr 9, biologic from yr 13)
+ax.axvspan(9, xmax, ymin=(n - n_sm + 0.5)/(n + 2.6), ymax=(n + 0.5)/(n + 2.6), color=C_AFTER, alpha=0.12)
+ax.axvspan(13, xmax, ymin=0.4/(n + 2.6), ymax=(n - n_sm + 0.5)/(n + 2.6), color=C_AFTER, alpha=0.12)
 for v, c in [(9, C_SM), (13, C_BIO)]:
     ax.axvline(v, color=c, ls=":", lw=1, alpha=0.7)
 for i, d in enumerate(drugs):
@@ -160,7 +163,8 @@ plt.tight_layout(); plt.show()""")
 
 md("## 7 · When new indications are approved (distribution)")
 co("""fig, ax = plt.subplots(figsize=(9, 4.2))
-bins = range(0, 29)
+all_vals = [v for d in payload["drugs"] if d["modality"] and d["in_negotiated"] for v in yrs(d)]
+bins = range(0, int(max(all_vals)) + 2)  # extend past the oldest event so no indication is dropped
 for mod, c in (("small molecule", C_SM), ("biologic", C_BIO)):
     vals = [v for d in payload["drugs"] if d["modality"] == mod and d["in_negotiated"] for v in yrs(d)]
     ax.hist(vals, bins=bins, color=c, alpha=0.55, label=f"{mod} (n={len(vals)})")
