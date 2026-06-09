@@ -1,0 +1,205 @@
+{
+ "n_cohort": 40,
+ "n_negotiated": 40,
+ "n_union": 64,
+ "n_resolved": 40,
+ "n_unresolved": 0,
+ "n_union_unresolved": 2,
+ "modality_counts": {
+  "small molecule": 30,
+  "biologic": 10
+ },
+ "sm_negotiated": 30,
+ "sm_in_window_count": 20,
+ "sm_in_window_drugs": [
+  "Biktarvy",
+  "Calquence",
+  "Entresto",
+  "Farxiga",
+  "Ibrance",
+  "Imbruvica",
+  "Jardiance",
+  "Kisqali",
+  "Lenvima",
+  "Linzess",
+  "Otezla",
+  "Ozempic",
+  "Pomalyst",
+  "Rexulti",
+  "Tradjenta",
+  "Verzenio",
+  "Vraylar",
+  "Xarelto",
+  "Xeljanz",
+  "Xtandi"
+ ],
+ "distribution": {
+  "small molecule": {
+   "n_indications": 186,
+   "mean_years": 6.03,
+   "median_years": 5.8,
+   "pct_back_half": 64.0,
+   "pct_after_clock": 19.4
+  },
+  "biologic": {
+   "n_indications": 103,
+   "mean_years": 11.77,
+   "median_years": 10.06,
+   "pct_back_half": 63.1,
+   "pct_after_clock": 36.9
+  }
+ },
+ "n_events": 289,
+ "pct_all_after_clock": 25.6,
+ "spend_year": 2023,
+ "negotiated_total_spend": 107537176985.84003,
+ "union_total_spend": 149314068351.75,
+ "negotiated_with_orphan": 19,
+ "negotiated_multi_orphan": 12,
+ "multi_orphan_drugs": [
+  "Austedo",
+  "Calquence",
+  "Enbrel",
+  "Entyvio",
+  "Imbruvica",
+  "Lenvima",
+  "Ofev",
+  "Orencia",
+  "Otezla",
+  "Pomalyst",
+  "Stelara",
+  "Xifaxan"
+ ],
+ "orphan_status_known": true,
+ "serial_orphan_strict": [
+  "Calquence",
+  "Imbruvica",
+  "Ofev",
+  "Pomalyst"
+ ],
+ "serial_orphan_strict_count": 4,
+ "serial_orphan_excluded": {
+  "Austedo": "non-orphan indication keyword: 'tardive'",
+  "Enbrel": "non-orphan indication keyword: 'psoriasis'",
+  "Entyvio": "non-orphan indication keyword: 'ulcerative colitis'",
+  "Lenvima": "non-orphan indication keyword: 'renal cell'",
+  "Orencia": "non-orphan indication keyword: 'rheumatoid arthritis'",
+  "Otezla": "non-orphan indication keyword: 'psoriasis'",
+  "Stelara": "non-orphan indication keyword: 'psoriasis'",
+  "Xifaxan": "non-orphan indication keyword: 'irritable bowel'"
+ },
+ "epic_sm_total": 30,
+ "epic_blocked_count": 19,
+ "epic_blocked": [
+  [
+   "Ozempic",
+   7.12,
+   2
+  ],
+  [
+   "Calquence",
+   7.21,
+   2
+  ],
+  [
+   "Trelegy Ellipta",
+   7.33,
+   2
+  ],
+  [
+   "Austedo",
+   7.79,
+   2
+  ],
+  [
+   "Erleada",
+   7.95,
+   3
+  ],
+  [
+   "Biktarvy",
+   7.97,
+   3
+  ],
+  [
+   "Entresto",
+   8.15,
+   1
+  ],
+  [
+   "Verzenio",
+   8.33,
+   3
+  ],
+  [
+   "Kisqali",
+   8.88,
+   3
+  ],
+  [
+   "Jardiance",
+   9.08,
+   1
+  ],
+  [
+   "Vraylar",
+   9.34,
+   2
+  ],
+  [
+   "Farxiga",
+   9.64,
+   1
+  ],
+  [
+   "Imbruvica",
+   9.79,
+   1
+  ],
+  [
+   "Ibrance",
+   9.95,
+   2
+  ],
+  [
+   "Ofev",
+   10.26,
+   2
+  ],
+  [
+   "Rexulti",
+   10.55,
+   3
+  ],
+  [
+   "Eliquis",
+   10.67,
+   1
+  ],
+  [
+   "Otezla",
+   10.83,
+   2
+  ],
+  [
+   "Lenvima",
+   10.95,
+   3
+  ]
+ ],
+ "epic_blocked_spend": 65735184968.98,
+ "epic_by_cycle": {
+  "1": {
+   "n_sm": 7,
+   "blocked": 5
+  },
+  "2": {
+   "n_sm": 15,
+   "blocked": 8
+  },
+  "3": {
+   "n_sm": 8,
+   "blocked": 6
+  }
+ }
+}

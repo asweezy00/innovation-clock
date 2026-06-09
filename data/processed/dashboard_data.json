@@ -1,0 +1,2887 @@
+{
+ "spend_year": 2023,
+ "drugs": [
+  {
+   "brand": "Eliquis",
+   "generic": "apixaban",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2012-12-28",
+   "application_number": "NDA202155",
+   "ira_cycle": 1,
+   "mfp_usd": 231,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 18273451967.0,
+   "part_b_spend": null,
+   "total_spend": 18273451967.0,
+   "indications": [
+    {
+     "date": "2014-03-13",
+     "years_after_launch": 1.2
+    },
+    {
+     "date": "2014-08-21",
+     "years_after_launch": 1.65
+    },
+    {
+     "date": "2025-04-17",
+     "years_after_launch": 12.3
+    }
+   ]
+  },
+  {
+   "brand": "Jardiance",
+   "generic": "empagliflozin",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2014-08-01",
+   "application_number": "NDA204629",
+   "ira_cycle": 1,
+   "mfp_usd": 197,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 8839935063.3,
+   "part_b_spend": null,
+   "total_spend": 8839935063.3,
+   "indications": [
+    {
+     "date": "2015-06-26",
+     "years_after_launch": 0.9
+    },
+    {
+     "date": "2016-03-18",
+     "years_after_launch": 1.63
+    },
+    {
+     "date": "2016-07-08",
+     "years_after_launch": 1.94
+    },
+    {
+     "date": "2016-12-02",
+     "years_after_launch": 2.34
+    },
+    {
+     "date": "2016-12-23",
+     "years_after_launch": 2.4
+    },
+    {
+     "date": "2019-07-03",
+     "years_after_launch": 4.92
+    },
+    {
+     "date": "2020-03-30",
+     "years_after_launch": 5.66
+    },
+    {
+     "date": "2020-10-30",
+     "years_after_launch": 6.25
+    },
+    {
+     "date": "2021-08-18",
+     "years_after_launch": 7.05
+    },
+    {
+     "date": "2022-02-24",
+     "years_after_launch": 7.57
+    },
+    {
+     "date": "2023-02-06",
+     "years_after_launch": 8.52
+    },
+    {
+     "date": "2023-06-20",
+     "years_after_launch": 8.88
+    },
+    {
+     "date": "2023-09-21",
+     "years_after_launch": 9.14
+    },
+    {
+     "date": "2025-03-07",
+     "years_after_launch": 10.6
+    }
+   ]
+  },
+  {
+   "brand": "Xarelto",
+   "generic": "rivaroxaban",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2011-07-01",
+   "application_number": "NDA022406",
+   "ira_cycle": 1,
+   "mfp_usd": 197,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 6309246822.6,
+   "part_b_spend": null,
+   "total_spend": 6309246822.6,
+   "indications": [
+    {
+     "date": "2012-11-02",
+     "years_after_launch": 1.34
+    },
+    {
+     "date": "2013-03-01",
+     "years_after_launch": 1.67
+    },
+    {
+     "date": "2016-05-06",
+     "years_after_launch": 4.85
+    },
+    {
+     "date": "2017-10-27",
+     "years_after_launch": 6.32
+    },
+    {
+     "date": "2018-10-11",
+     "years_after_launch": 7.28
+    },
+    {
+     "date": "2019-10-11",
+     "years_after_launch": 8.28
+    },
+    {
+     "date": "2020-03-10",
+     "years_after_launch": 8.69
+    },
+    {
+     "date": "2021-08-23",
+     "years_after_launch": 10.15
+    }
+   ]
+  },
+  {
+   "brand": "Januvia",
+   "generic": "sitagliptin",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2006-10-16",
+   "application_number": "NDA021995",
+   "ira_cycle": 1,
+   "mfp_usd": 113,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 4090836820.7,
+   "part_b_spend": null,
+   "total_spend": 4090836820.7,
+   "indications": [
+    {
+     "date": "2007-10-12",
+     "years_after_launch": 0.99
+    },
+    {
+     "date": "2008-02-26",
+     "years_after_launch": 1.36
+    },
+    {
+     "date": "2010-02-26",
+     "years_after_launch": 3.36
+    },
+    {
+     "date": "2010-09-24",
+     "years_after_launch": 3.94
+    },
+    {
+     "date": "2012-09-18",
+     "years_after_launch": 5.92
+    },
+    {
+     "date": "2019-08-12",
+     "years_after_launch": 12.82
+    },
+    {
+     "date": "2020-12-04",
+     "years_after_launch": 14.14
+    },
+    {
+     "date": "2021-09-17",
+     "years_after_launch": 14.92
+    }
+   ]
+  },
+  {
+   "brand": "Farxiga",
+   "generic": "dapagliflozin",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2014-01-08",
+   "application_number": "NDA202293",
+   "ira_cycle": 1,
+   "mfp_usd": 178.5,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 4342182307.3,
+   "part_b_spend": null,
+   "total_spend": 4342182307.3,
+   "indications": [
+    {
+     "date": "2015-03-11",
+     "years_after_launch": 1.17
+    },
+    {
+     "date": "2017-10-20",
+     "years_after_launch": 3.78
+    },
+    {
+     "date": "2019-02-22",
+     "years_after_launch": 5.12
+    },
+    {
+     "date": "2019-05-02",
+     "years_after_launch": 5.31
+    },
+    {
+     "date": "2019-10-18",
+     "years_after_launch": 5.77
+    },
+    {
+     "date": "2020-05-05",
+     "years_after_launch": 6.32
+    },
+    {
+     "date": "2021-04-30",
+     "years_after_launch": 7.31
+    },
+    {
+     "date": "2022-02-03",
+     "years_after_launch": 8.07
+    },
+    {
+     "date": "2022-04-11",
+     "years_after_launch": 8.25
+    },
+    {
+     "date": "2023-05-08",
+     "years_after_launch": 9.33
+    },
+    {
+     "date": "2024-06-12",
+     "years_after_launch": 10.43
+    },
+    {
+     "date": "2024-12-20",
+     "years_after_launch": 10.95
+    }
+   ]
+  },
+  {
+   "brand": "Entresto",
+   "generic": "sacubitril/valsartan",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2015-07-07",
+   "application_number": "NDA207620",
+   "ira_cycle": 1,
+   "mfp_usd": 295,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 3430441590.4,
+   "part_b_spend": null,
+   "total_spend": 3430441590.4,
+   "indications": [
+    {
+     "date": "2019-10-01",
+     "years_after_launch": 4.24
+    },
+    {
+     "date": "2021-02-16",
+     "years_after_launch": 5.62
+    },
+    {
+     "date": "2024-04-12",
+     "years_after_launch": 8.77
+    }
+   ]
+  },
+  {
+   "brand": "Enbrel",
+   "generic": "etanercept",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "1998-11-02",
+   "application_number": "BLA103795",
+   "ira_cycle": 1,
+   "mfp_usd": 2355,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 2054858498.8,
+   "part_b_spend": null,
+   "total_spend": 2054858498.8,
+   "indications": [
+    {
+     "date": "1999-05-27",
+     "years_after_launch": 0.56
+    },
+    {
+     "date": "2000-06-06",
+     "years_after_launch": 1.59
+    },
+    {
+     "date": "2002-01-15",
+     "years_after_launch": 3.2
+    },
+    {
+     "date": "2002-09-12",
+     "years_after_launch": 3.86
+    },
+    {
+     "date": "2003-07-24",
+     "years_after_launch": 4.72
+    },
+    {
+     "date": "2003-08-21",
+     "years_after_launch": 4.8
+    },
+    {
+     "date": "2003-10-17",
+     "years_after_launch": 4.96
+    },
+    {
+     "date": "2003-11-25",
+     "years_after_launch": 5.06
+    },
+    {
+     "date": "2004-04-30",
+     "years_after_launch": 5.49
+    },
+    {
+     "date": "2004-09-24",
+     "years_after_launch": 5.89
+    },
+    {
+     "date": "2004-09-27",
+     "years_after_launch": 5.9
+    },
+    {
+     "date": "2005-05-27",
+     "years_after_launch": 6.57
+    },
+    {
+     "date": "2006-05-17",
+     "years_after_launch": 7.54
+    },
+    {
+     "date": "2016-11-04",
+     "years_after_launch": 18.01
+    },
+    {
+     "date": "2017-09-14",
+     "years_after_launch": 18.87
+    },
+    {
+     "date": "2017-11-22",
+     "years_after_launch": 19.06
+    },
+    {
+     "date": "2023-10-18",
+     "years_after_launch": 24.96
+    }
+   ]
+  },
+  {
+   "brand": "Imbruvica",
+   "generic": "ibrutinib",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2013-11-13",
+   "application_number": "NDA205552",
+   "ira_cycle": 1,
+   "mfp_usd": 9319,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 2371893291.7,
+   "part_b_spend": null,
+   "total_spend": 2371893291.7,
+   "indications": [
+    {
+     "date": "2014-07-28",
+     "years_after_launch": 0.7
+    },
+    {
+     "date": "2015-01-29",
+     "years_after_launch": 1.21
+    },
+    {
+     "date": "2016-03-04",
+     "years_after_launch": 2.31
+    },
+    {
+     "date": "2016-05-06",
+     "years_after_launch": 2.48
+    },
+    {
+     "date": "2017-01-18",
+     "years_after_launch": 3.18
+    },
+    {
+     "date": "2017-08-02",
+     "years_after_launch": 3.72
+    },
+    {
+     "date": "2017-12-20",
+     "years_after_launch": 4.1
+    },
+    {
+     "date": "2018-08-24",
+     "years_after_launch": 4.78
+    },
+    {
+     "date": "2019-01-25",
+     "years_after_launch": 5.2
+    },
+    {
+     "date": "2020-04-21",
+     "years_after_launch": 6.44
+    },
+    {
+     "date": "2020-12-18",
+     "years_after_launch": 7.1
+    },
+    {
+     "date": "2022-08-24",
+     "years_after_launch": 8.78
+    },
+    {
+     "date": "2023-05-18",
+     "years_after_launch": 9.51
+    }
+   ]
+  },
+  {
+   "brand": "Stelara",
+   "generic": "ustekinumab",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2009-09-25",
+   "application_number": "BLA125261",
+   "ira_cycle": 1,
+   "mfp_usd": 4695,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 2987778599.9,
+   "part_b_spend": 27614584.61,
+   "total_spend": 3015393184.51,
+   "indications": [
+    {
+     "date": "2009-12-30",
+     "years_after_launch": 0.26
+    },
+    {
+     "date": "2012-05-31",
+     "years_after_launch": 2.68
+    },
+    {
+     "date": "2013-05-21",
+     "years_after_launch": 3.65
+    },
+    {
+     "date": "2013-09-20",
+     "years_after_launch": 3.99
+    },
+    {
+     "date": "2017-10-13",
+     "years_after_launch": 8.05
+    },
+    {
+     "date": "2019-10-18",
+     "years_after_launch": 10.06
+    },
+    {
+     "date": "2020-07-29",
+     "years_after_launch": 10.84
+    },
+    {
+     "date": "2022-07-29",
+     "years_after_launch": 12.84
+    },
+    {
+     "date": "2026-04-15",
+     "years_after_launch": 16.55
+    }
+   ]
+  },
+  {
+   "brand": "NovoLog",
+   "generic": "insulin aspart",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2000-06-07",
+   "application_number": "BLA020986",
+   "ira_cycle": 1,
+   "mfp_usd": 119,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1875605626.8,
+   "part_b_spend": null,
+   "total_spend": 1875605626.8,
+   "indications": [
+    {
+     "date": "2001-12-21",
+     "years_after_launch": 1.54
+    },
+    {
+     "date": "2002-12-04",
+     "years_after_launch": 2.49
+    },
+    {
+     "date": "2005-09-13",
+     "years_after_launch": 5.27
+    },
+    {
+     "date": "2005-10-21",
+     "years_after_launch": 5.37
+    },
+    {
+     "date": "2007-01-26",
+     "years_after_launch": 6.64
+    },
+    {
+     "date": "2008-03-14",
+     "years_after_launch": 7.77
+    },
+    {
+     "date": "2015-01-14",
+     "years_after_launch": 14.6
+    },
+    {
+     "date": "2016-12-16",
+     "years_after_launch": 16.53
+    },
+    {
+     "date": "2018-08-09",
+     "years_after_launch": 18.17
+    },
+    {
+     "date": "2019-10-21",
+     "years_after_launch": 19.37
+    },
+    {
+     "date": "2019-12-19",
+     "years_after_launch": 19.53
+    }
+   ]
+  },
+  {
+   "brand": "Ozempic",
+   "generic": "semaglutide",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2017-12-05",
+   "application_number": "NDA209637",
+   "ira_cycle": 2,
+   "mfp_usd": 274,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 9194048435.1,
+   "part_b_spend": null,
+   "total_spend": 9194048435.1,
+   "indications": [
+    {
+     "date": "2020-01-16",
+     "years_after_launch": 2.11
+    },
+    {
+     "date": "2022-03-28",
+     "years_after_launch": 4.31
+    },
+    {
+     "date": "2022-12-23",
+     "years_after_launch": 5.05
+    },
+    {
+     "date": "2023-07-21",
+     "years_after_launch": 5.62
+    },
+    {
+     "date": "2024-03-08",
+     "years_after_launch": 6.26
+    },
+    {
+     "date": "2024-11-27",
+     "years_after_launch": 6.98
+    },
+    {
+     "date": "2024-12-09",
+     "years_after_launch": 7.01
+    },
+    {
+     "date": "2025-01-28",
+     "years_after_launch": 7.15
+    },
+    {
+     "date": "2025-08-15",
+     "years_after_launch": 7.69
+    },
+    {
+     "date": "2025-10-17",
+     "years_after_launch": 7.87
+    },
+    {
+     "date": "2025-11-21",
+     "years_after_launch": 7.96
+    },
+    {
+     "date": "2026-03-19",
+     "years_after_launch": 8.28
+    }
+   ]
+  },
+  {
+   "brand": "Trelegy Ellipta",
+   "generic": "fluticasone furoate/umeclidinium/vilanterol",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2017-09-18",
+   "application_number": "NDA209482",
+   "ira_cycle": 2,
+   "mfp_usd": 175,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 4455884009.7,
+   "part_b_spend": null,
+   "total_spend": 4455884009.7,
+   "indications": [
+    {
+     "date": "2018-04-24",
+     "years_after_launch": 0.6
+    },
+    {
+     "date": "2020-09-09",
+     "years_after_launch": 2.98
+    }
+   ]
+  },
+  {
+   "brand": "Xtandi",
+   "generic": "enzalutamide",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2012-08-31",
+   "application_number": "NDA203415",
+   "ira_cycle": 2,
+   "mfp_usd": 7004,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 2601510278.2,
+   "part_b_spend": null,
+   "total_spend": 2601510278.2,
+   "indications": [
+    {
+     "date": "2014-09-10",
+     "years_after_launch": 2.03
+    },
+    {
+     "date": "2015-07-21",
+     "years_after_launch": 2.89
+    },
+    {
+     "date": "2016-10-20",
+     "years_after_launch": 4.14
+    },
+    {
+     "date": "2017-07-24",
+     "years_after_launch": 4.9
+    },
+    {
+     "date": "2018-07-13",
+     "years_after_launch": 5.86
+    },
+    {
+     "date": "2019-12-16",
+     "years_after_launch": 7.29
+    },
+    {
+     "date": "2020-10-23",
+     "years_after_launch": 8.15
+    },
+    {
+     "date": "2022-09-09",
+     "years_after_launch": 10.02
+    },
+    {
+     "date": "2023-11-16",
+     "years_after_launch": 11.21
+    }
+   ]
+  },
+  {
+   "brand": "Pomalyst",
+   "generic": "pomalidomide",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2013-02-08",
+   "application_number": "NDA204026",
+   "ira_cycle": 2,
+   "mfp_usd": 8650,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 1709288465.2,
+   "part_b_spend": null,
+   "total_spend": 1709288465.2,
+   "indications": [
+    {
+     "date": "2015-04-23",
+     "years_after_launch": 2.2
+    },
+    {
+     "date": "2020-05-14",
+     "years_after_launch": 7.26
+    },
+    {
+     "date": "2020-11-20",
+     "years_after_launch": 7.78
+    }
+   ]
+  },
+  {
+   "brand": "Ofev",
+   "generic": "nintedanib",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2014-10-15",
+   "application_number": "NDA205832",
+   "ira_cycle": 2,
+   "mfp_usd": 6350,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 1837061150.2,
+   "part_b_spend": null,
+   "total_spend": 1837061150.2,
+   "indications": [
+    {
+     "date": "2019-09-06",
+     "years_after_launch": 4.89
+    },
+    {
+     "date": "2020-03-09",
+     "years_after_launch": 5.4
+    }
+   ]
+  },
+  {
+   "brand": "Ibrance",
+   "generic": "palbociclib",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2015-02-03",
+   "application_number": "NDA207103",
+   "ira_cycle": 2,
+   "mfp_usd": 7871,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 2020903604.2,
+   "part_b_spend": null,
+   "total_spend": 2020903604.2,
+   "indications": [
+    {
+     "date": "2016-02-19",
+     "years_after_launch": 1.04
+    },
+    {
+     "date": "2017-03-31",
+     "years_after_launch": 2.15
+    },
+    {
+     "date": "2018-02-06",
+     "years_after_launch": 3.01
+    },
+    {
+     "date": "2019-04-04",
+     "years_after_launch": 4.16
+    },
+    {
+     "date": "2019-09-09",
+     "years_after_launch": 4.6
+    },
+    {
+     "date": "2022-12-13",
+     "years_after_launch": 7.86
+    },
+    {
+     "date": "2023-09-06",
+     "years_after_launch": 8.59
+    },
+    {
+     "date": "2025-04-23",
+     "years_after_launch": 10.22
+    },
+    {
+     "date": "2025-09-16",
+     "years_after_launch": 10.62
+    }
+   ]
+  },
+  {
+   "brand": "Linzess",
+   "generic": "linaclotide",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2012-08-30",
+   "application_number": "NDA202811",
+   "ira_cycle": 2,
+   "mfp_usd": 136,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1825245843.2,
+   "part_b_spend": null,
+   "total_spend": 1825245843.2,
+   "indications": [
+    {
+     "date": "2017-01-25",
+     "years_after_launch": 4.41
+    },
+    {
+     "date": "2020-09-22",
+     "years_after_launch": 8.06
+    },
+    {
+     "date": "2023-06-12",
+     "years_after_launch": 10.78
+    },
+    {
+     "date": "2025-11-04",
+     "years_after_launch": 13.18
+    },
+    {
+     "date": "2026-05-21",
+     "years_after_launch": 13.72
+    }
+   ]
+  },
+  {
+   "brand": "Calquence",
+   "generic": "acalabrutinib",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2017-10-31",
+   "application_number": "NDA210259",
+   "ira_cycle": 2,
+   "mfp_usd": 8600,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 1286819830.1,
+   "part_b_spend": null,
+   "total_spend": 1286819830.1,
+   "indications": [
+    {
+     "date": "2019-11-21",
+     "years_after_launch": 2.06
+    },
+    {
+     "date": "2025-01-16",
+     "years_after_launch": 7.21
+    },
+    {
+     "date": "2026-02-19",
+     "years_after_launch": 8.3
+    }
+   ]
+  },
+  {
+   "brand": "Austedo",
+   "generic": "deutetrabenazine",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2017-04-03",
+   "application_number": "NDA208082",
+   "ira_cycle": 2,
+   "mfp_usd": 4093,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 1123439045.1,
+   "part_b_spend": null,
+   "total_spend": 1123439045.1,
+   "indications": [
+    {
+     "date": "2021-06-24",
+     "years_after_launch": 4.22
+    }
+   ]
+  },
+  {
+   "brand": "Breo Ellipta",
+   "generic": "fluticasone furoate/vilanterol",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2013-05-10",
+   "application_number": "NDA204275",
+   "ira_cycle": 2,
+   "mfp_usd": 67,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1373600714.1,
+   "part_b_spend": null,
+   "total_spend": 1373600714.1,
+   "indications": [
+    {
+     "date": "2015-04-30",
+     "years_after_launch": 1.97
+    },
+    {
+     "date": "2017-05-15",
+     "years_after_launch": 4.01
+    },
+    {
+     "date": "2023-05-12",
+     "years_after_launch": 10.0
+    }
+   ]
+  },
+  {
+   "brand": "Xifaxan",
+   "generic": "rifaximin",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2004-05-25",
+   "application_number": "NDA021361",
+   "ira_cycle": 2,
+   "mfp_usd": 1000,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 1090110101.4,
+   "part_b_spend": null,
+   "total_spend": 1090110101.4,
+   "indications": [
+    {
+     "date": "2015-05-27",
+     "years_after_launch": 11.0
+    }
+   ]
+  },
+  {
+   "brand": "Vraylar",
+   "generic": "cariprazine",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2015-09-17",
+   "application_number": "NDA204370",
+   "ira_cycle": 2,
+   "mfp_usd": 770,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 935653082.16,
+   "part_b_spend": null,
+   "total_spend": 935653082.16,
+   "indications": [
+    {
+     "date": "2017-11-09",
+     "years_after_launch": 2.15
+    },
+    {
+     "date": "2019-05-24",
+     "years_after_launch": 3.68
+    },
+    {
+     "date": "2022-12-16",
+     "years_after_launch": 7.25
+    },
+    {
+     "date": "2025-12-18",
+     "years_after_launch": 10.25
+    }
+   ]
+  },
+  {
+   "brand": "Tradjenta",
+   "generic": "linagliptin",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2011-05-02",
+   "application_number": "NDA201280",
+   "ira_cycle": 2,
+   "mfp_usd": 78,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1293567778.3,
+   "part_b_spend": null,
+   "total_spend": 1293567778.3,
+   "indications": [
+    {
+     "date": "2012-05-22",
+     "years_after_launch": 1.06
+    },
+    {
+     "date": "2012-08-13",
+     "years_after_launch": 1.28
+    },
+    {
+     "date": "2012-09-28",
+     "years_after_launch": 1.41
+    },
+    {
+     "date": "2013-09-05",
+     "years_after_launch": 2.35
+    },
+    {
+     "date": "2014-07-30",
+     "years_after_launch": 3.24
+    },
+    {
+     "date": "2016-12-23",
+     "years_after_launch": 5.65
+    },
+    {
+     "date": "2019-07-03",
+     "years_after_launch": 8.17
+    },
+    {
+     "date": "2020-03-30",
+     "years_after_launch": 8.91
+    },
+    {
+     "date": "2020-10-30",
+     "years_after_launch": 9.5
+    },
+    {
+     "date": "2023-06-20",
+     "years_after_launch": 12.13
+    }
+   ]
+  },
+  {
+   "brand": "Janumet",
+   "generic": "sitagliptin/metformin",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2007-03-30",
+   "application_number": "NDA022044",
+   "ira_cycle": 2,
+   "mfp_usd": 80,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 798865848.51,
+   "part_b_spend": null,
+   "total_spend": 798865848.51,
+   "indications": [
+    {
+     "date": "2008-02-26",
+     "years_after_launch": 0.91
+    },
+    {
+     "date": "2010-02-26",
+     "years_after_launch": 2.91
+    },
+    {
+     "date": "2010-09-24",
+     "years_after_launch": 3.49
+    },
+    {
+     "date": "2019-08-12",
+     "years_after_launch": 12.37
+    },
+    {
+     "date": "2020-12-04",
+     "years_after_launch": 13.68
+    }
+   ]
+  },
+  {
+   "brand": "Otezla",
+   "generic": "apremilast",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2014-03-21",
+   "application_number": "NDA205437",
+   "ira_cycle": 2,
+   "mfp_usd": 1650,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 876955029.97,
+   "part_b_spend": null,
+   "total_spend": 876955029.97,
+   "indications": [
+    {
+     "date": "2019-07-19",
+     "years_after_launch": 5.33
+    },
+    {
+     "date": "2020-04-10",
+     "years_after_launch": 6.06
+    },
+    {
+     "date": "2021-12-20",
+     "years_after_launch": 7.75
+    },
+    {
+     "date": "2023-07-20",
+     "years_after_launch": 9.33
+    },
+    {
+     "date": "2024-04-25",
+     "years_after_launch": 10.1
+    },
+    {
+     "date": "2025-07-23",
+     "years_after_launch": 11.34
+    }
+   ]
+  },
+  {
+   "brand": "Anoro Ellipta",
+   "generic": "umeclidinium/vilanterol",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2013-12-18",
+   "application_number": "NDA203975",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 872959569.63,
+   "part_b_spend": null,
+   "total_spend": 872959569.63,
+   "indications": [
+    {
+     "date": "2019-06-06",
+     "years_after_launch": 5.46
+    }
+   ]
+  },
+  {
+   "brand": "Biktarvy",
+   "generic": "bictegravir/emtricitabine/tenofovir alafenamide",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2018-02-07",
+   "application_number": "NDA210251",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 3152256268.6,
+   "part_b_spend": null,
+   "total_spend": 3152256268.6,
+   "indications": [
+    {
+     "date": "2019-06-18",
+     "years_after_launch": 1.36
+    },
+    {
+     "date": "2021-02-05",
+     "years_after_launch": 3.0
+    },
+    {
+     "date": "2021-02-24",
+     "years_after_launch": 3.05
+    },
+    {
+     "date": "2021-10-07",
+     "years_after_launch": 3.66
+    },
+    {
+     "date": "2022-10-14",
+     "years_after_launch": 4.68
+    },
+    {
+     "date": "2024-02-23",
+     "years_after_launch": 6.04
+    },
+    {
+     "date": "2024-04-24",
+     "years_after_launch": 6.21
+    },
+    {
+     "date": "2025-07-30",
+     "years_after_launch": 7.47
+    }
+   ]
+  },
+  {
+   "brand": "Botox",
+   "generic": "onabotulinumtoxinA",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "1991-12-09",
+   "application_number": "BLA103000",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 112400196.44,
+   "part_b_spend": 444518571.28,
+   "total_spend": 556918767.72,
+   "indications": [
+    {
+     "date": "2000-12-21",
+     "years_after_launch": 9.03
+    },
+    {
+     "date": "2002-04-12",
+     "years_after_launch": 10.34
+    },
+    {
+     "date": "2004-07-19",
+     "years_after_launch": 12.61
+    },
+    {
+     "date": "2010-03-09",
+     "years_after_launch": 18.25
+    },
+    {
+     "date": "2010-03-26",
+     "years_after_launch": 18.29
+    },
+    {
+     "date": "2010-10-15",
+     "years_after_launch": 18.85
+    },
+    {
+     "date": "2011-08-24",
+     "years_after_launch": 19.71
+    },
+    {
+     "date": "2013-01-18",
+     "years_after_launch": 21.11
+    },
+    {
+     "date": "2013-09-11",
+     "years_after_launch": 21.76
+    },
+    {
+     "date": "2015-04-17",
+     "years_after_launch": 23.35
+    },
+    {
+     "date": "2016-01-21",
+     "years_after_launch": 24.12
+    },
+    {
+     "date": "2016-02-04",
+     "years_after_launch": 24.16
+    },
+    {
+     "date": "2017-04-04",
+     "years_after_launch": 25.32
+    },
+    {
+     "date": "2017-10-02",
+     "years_after_launch": 25.82
+    },
+    {
+     "date": "2018-09-12",
+     "years_after_launch": 26.76
+    },
+    {
+     "date": "2019-06-20",
+     "years_after_launch": 27.53
+    },
+    {
+     "date": "2019-10-18",
+     "years_after_launch": 27.86
+    },
+    {
+     "date": "2020-07-08",
+     "years_after_launch": 28.58
+    },
+    {
+     "date": "2021-02-09",
+     "years_after_launch": 29.17
+    },
+    {
+     "date": "2021-07-28",
+     "years_after_launch": 29.63
+    },
+    {
+     "date": "2023-08-11",
+     "years_after_launch": 31.67
+    },
+    {
+     "date": "2024-10-18",
+     "years_after_launch": 32.86
+    }
+   ]
+  },
+  {
+   "brand": "Cimzia",
+   "generic": "certolizumab pegol",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2008-04-22",
+   "application_number": "BLA125160",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 275055734.35,
+   "part_b_spend": 401173238.97,
+   "total_spend": 676228973.32,
+   "indications": [
+    {
+     "date": "2009-05-13",
+     "years_after_launch": 1.06
+    },
+    {
+     "date": "2012-04-17",
+     "years_after_launch": 3.99
+    },
+    {
+     "date": "2013-09-27",
+     "years_after_launch": 5.43
+    },
+    {
+     "date": "2013-10-17",
+     "years_after_launch": 5.49
+    },
+    {
+     "date": "2018-05-24",
+     "years_after_launch": 10.09
+    },
+    {
+     "date": "2019-03-28",
+     "years_after_launch": 10.93
+    },
+    {
+     "date": "2022-12-22",
+     "years_after_launch": 14.67
+    },
+    {
+     "date": "2024-09-13",
+     "years_after_launch": 16.39
+    }
+   ]
+  },
+  {
+   "brand": "Cosentyx",
+   "generic": "secukinumab",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2015-01-21",
+   "application_number": "BLA125504",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 852693125.47,
+   "part_b_spend": null,
+   "total_spend": 852693125.47,
+   "indications": [
+    {
+     "date": "2016-01-15",
+     "years_after_launch": 0.98
+    },
+    {
+     "date": "2018-01-23",
+     "years_after_launch": 3.01
+    },
+    {
+     "date": "2018-06-19",
+     "years_after_launch": 3.41
+    },
+    {
+     "date": "2020-01-29",
+     "years_after_launch": 5.02
+    },
+    {
+     "date": "2020-06-16",
+     "years_after_launch": 5.4
+    },
+    {
+     "date": "2021-05-28",
+     "years_after_launch": 6.35
+    },
+    {
+     "date": "2021-12-22",
+     "years_after_launch": 6.92
+    },
+    {
+     "date": "2023-05-11",
+     "years_after_launch": 8.3
+    },
+    {
+     "date": "2023-10-31",
+     "years_after_launch": 8.77
+    },
+    {
+     "date": "2026-03-12",
+     "years_after_launch": 11.14
+    },
+    {
+     "date": "2026-04-17",
+     "years_after_launch": 11.24
+    }
+   ]
+  },
+  {
+   "brand": "Entyvio",
+   "generic": "vedolizumab",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2014-05-20",
+   "application_number": "BLA125476",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 99999922.74,
+   "part_b_spend": 727761504.54,
+   "total_spend": 827761427.28,
+   "indications": [
+    {
+     "date": "2023-01-25",
+     "years_after_launch": 8.68
+    }
+   ]
+  },
+  {
+   "brand": "Erleada",
+   "generic": "apalutamide",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2018-02-14",
+   "application_number": "NDA210951",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1057789083.3,
+   "part_b_spend": null,
+   "total_spend": 1057789083.3,
+   "indications": [
+    {
+     "date": "2019-09-17",
+     "years_after_launch": 1.59
+    },
+    {
+     "date": "2020-11-20",
+     "years_after_launch": 2.77
+    },
+    {
+     "date": "2021-09-07",
+     "years_after_launch": 3.56
+    },
+    {
+     "date": "2023-12-19",
+     "years_after_launch": 5.84
+    }
+   ]
+  },
+  {
+   "brand": "Kisqali",
+   "generic": "ribociclib",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2017-03-13",
+   "application_number": "NDA209092",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 370771679.06,
+   "part_b_spend": null,
+   "total_spend": 370771679.06,
+   "indications": [
+    {
+     "date": "2018-07-18",
+     "years_after_launch": 1.35
+    },
+    {
+     "date": "2019-02-13",
+     "years_after_launch": 1.92
+    },
+    {
+     "date": "2020-07-06",
+     "years_after_launch": 3.32
+    },
+    {
+     "date": "2021-12-10",
+     "years_after_launch": 4.74
+    },
+    {
+     "date": "2022-10-03",
+     "years_after_launch": 5.56
+    },
+    {
+     "date": "2024-07-22",
+     "years_after_launch": 7.36
+    },
+    {
+     "date": "2024-09-17",
+     "years_after_launch": 7.52
+    }
+   ]
+  },
+  {
+   "brand": "Lenvima",
+   "generic": "lenvatinib",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2015-02-13",
+   "application_number": "NDA206947",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 778834823.88,
+   "part_b_spend": null,
+   "total_spend": 778834823.88,
+   "indications": [
+    {
+     "date": "2016-05-13",
+     "years_after_launch": 1.25
+    },
+    {
+     "date": "2018-08-15",
+     "years_after_launch": 3.5
+    },
+    {
+     "date": "2019-09-17",
+     "years_after_launch": 4.59
+    },
+    {
+     "date": "2021-07-21",
+     "years_after_launch": 6.43
+    },
+    {
+     "date": "2021-08-10",
+     "years_after_launch": 6.49
+    },
+    {
+     "date": "2021-12-19",
+     "years_after_launch": 6.85
+    },
+    {
+     "date": "2023-10-23",
+     "years_after_launch": 8.69
+    },
+    {
+     "date": "2024-04-03",
+     "years_after_launch": 9.14
+    },
+    {
+     "date": "2024-06-07",
+     "years_after_launch": 9.31
+    },
+    {
+     "date": "2025-01-29",
+     "years_after_launch": 9.96
+    }
+   ]
+  },
+  {
+   "brand": "Orencia",
+   "generic": "abatacept",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2005-12-23",
+   "application_number": "BLA125118",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 451311111.35,
+   "part_b_spend": 902527109.82,
+   "total_spend": 1353838221.17,
+   "indications": [
+    {
+     "date": "2007-03-13",
+     "years_after_launch": 1.22
+    },
+    {
+     "date": "2008-04-07",
+     "years_after_launch": 2.29
+    },
+    {
+     "date": "2009-08-25",
+     "years_after_launch": 3.67
+    },
+    {
+     "date": "2011-07-29",
+     "years_after_launch": 5.6
+    },
+    {
+     "date": "2013-12-20",
+     "years_after_launch": 7.99
+    },
+    {
+     "date": "2016-06-07",
+     "years_after_launch": 10.46
+    },
+    {
+     "date": "2017-03-30",
+     "years_after_launch": 11.27
+    },
+    {
+     "date": "2017-06-30",
+     "years_after_launch": 11.52
+    },
+    {
+     "date": "2021-12-15",
+     "years_after_launch": 15.98
+    },
+    {
+     "date": "2023-10-30",
+     "years_after_launch": 17.85
+    }
+   ]
+  },
+  {
+   "brand": "Rexulti",
+   "generic": "brexpiprazole",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2015-07-10",
+   "application_number": "NDA205422",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 630013840.43,
+   "part_b_spend": null,
+   "total_spend": 630013840.43,
+   "indications": [
+    {
+     "date": "2016-09-23",
+     "years_after_launch": 1.21
+    },
+    {
+     "date": "2021-12-27",
+     "years_after_launch": 6.47
+    },
+    {
+     "date": "2023-05-10",
+     "years_after_launch": 7.83
+    },
+    {
+     "date": "2024-05-07",
+     "years_after_launch": 8.83
+    },
+    {
+     "date": "2025-05-09",
+     "years_after_launch": 9.83
+    }
+   ]
+  },
+  {
+   "brand": "Trulicity",
+   "generic": "dulaglutide",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2014-09-18",
+   "application_number": "BLA125469",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 7363856224.3,
+   "part_b_spend": null,
+   "total_spend": 7363856224.3,
+   "indications": [
+    {
+     "date": "2017-01-27",
+     "years_after_launch": 2.36
+    },
+    {
+     "date": "2018-06-29",
+     "years_after_launch": 3.78
+    },
+    {
+     "date": "2019-01-15",
+     "years_after_launch": 4.33
+    },
+    {
+     "date": "2020-02-21",
+     "years_after_launch": 5.43
+    },
+    {
+     "date": "2020-09-03",
+     "years_after_launch": 5.96
+    },
+    {
+     "date": "2022-11-17",
+     "years_after_launch": 8.16
+    }
+   ]
+  },
+  {
+   "brand": "Verzenio",
+   "generic": "abemaciclib",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2017-09-28",
+   "application_number": "NDA208716",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 756850867.48,
+   "part_b_spend": null,
+   "total_spend": 756850867.48,
+   "indications": [
+    {
+     "date": "2020-03-30",
+     "years_after_launch": 2.5
+    },
+    {
+     "date": "2021-10-12",
+     "years_after_launch": 4.04
+    },
+    {
+     "date": "2023-03-03",
+     "years_after_launch": 5.43
+    },
+    {
+     "date": "2024-11-13",
+     "years_after_launch": 7.13
+    }
+   ]
+  },
+  {
+   "brand": "Xeljanz",
+   "generic": "tofacitinib",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2012-11-06",
+   "application_number": "NDA203214",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 585772571.52,
+   "part_b_spend": null,
+   "total_spend": 585772571.52,
+   "indications": [
+    {
+     "date": "2013-11-18",
+     "years_after_launch": 1.03
+    },
+    {
+     "date": "2014-02-21",
+     "years_after_launch": 1.29
+    },
+    {
+     "date": "2017-08-22",
+     "years_after_launch": 4.79
+    },
+    {
+     "date": "2017-12-14",
+     "years_after_launch": 5.1
+    },
+    {
+     "date": "2018-05-30",
+     "years_after_launch": 5.56
+    },
+    {
+     "date": "2019-12-12",
+     "years_after_launch": 7.1
+    },
+    {
+     "date": "2020-09-25",
+     "years_after_launch": 7.89
+    },
+    {
+     "date": "2021-12-14",
+     "years_after_launch": 9.1
+    },
+    {
+     "date": "2025-02-21",
+     "years_after_launch": 12.29
+    },
+    {
+     "date": "2025-10-16",
+     "years_after_launch": 12.94
+    },
+    {
+     "date": "2026-03-06",
+     "years_after_launch": 13.33
+    }
+   ]
+  },
+  {
+   "brand": "Xolair",
+   "generic": "omalizumab",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2003-06-20",
+   "application_number": "BLA103976",
+   "ira_cycle": 3,
+   "mfp_usd": null,
+   "in_negotiated": true,
+   "in_top_spend": false,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 254056608.93,
+   "part_b_spend": 419776545.2,
+   "total_spend": 673833154.13,
+   "indications": [
+    {
+     "date": "2010-01-04",
+     "years_after_launch": 6.54
+    },
+    {
+     "date": "2014-03-21",
+     "years_after_launch": 10.75
+    },
+    {
+     "date": "2014-09-26",
+     "years_after_launch": 11.27
+    },
+    {
+     "date": "2016-07-06",
+     "years_after_launch": 13.05
+    },
+    {
+     "date": "2018-09-28",
+     "years_after_launch": 15.27
+    },
+    {
+     "date": "2020-11-30",
+     "years_after_launch": 17.45
+    },
+    {
+     "date": "2021-04-09",
+     "years_after_launch": 17.8
+    },
+    {
+     "date": "2024-02-16",
+     "years_after_launch": 20.66
+    }
+   ]
+  },
+  {
+   "brand": "Humira(Cf) Pen",
+   "generic": "Adalimumab",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2002-12-31",
+   "application_number": "BLA125057",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 4419828188.3,
+   "part_b_spend": null,
+   "total_spend": 4419828188.3,
+   "indications": [
+    {
+     "date": "2004-07-30",
+     "years_after_launch": 1.58
+    },
+    {
+     "date": "2005-10-03",
+     "years_after_launch": 2.76
+    },
+    {
+     "date": "2006-07-28",
+     "years_after_launch": 3.57
+    },
+    {
+     "date": "2006-11-09",
+     "years_after_launch": 3.86
+    },
+    {
+     "date": "2007-02-16",
+     "years_after_launch": 4.13
+    },
+    {
+     "date": "2007-02-27",
+     "years_after_launch": 4.16
+    },
+    {
+     "date": "2007-07-30",
+     "years_after_launch": 4.58
+    },
+    {
+     "date": "2008-01-18",
+     "years_after_launch": 5.05
+    },
+    {
+     "date": "2008-02-21",
+     "years_after_launch": 5.14
+    },
+    {
+     "date": "2011-02-25",
+     "years_after_launch": 8.15
+    },
+    {
+     "date": "2012-09-28",
+     "years_after_launch": 9.74
+    },
+    {
+     "date": "2014-09-23",
+     "years_after_launch": 11.73
+    },
+    {
+     "date": "2014-09-30",
+     "years_after_launch": 11.75
+    },
+    {
+     "date": "2015-09-09",
+     "years_after_launch": 12.69
+    },
+    {
+     "date": "2015-11-23",
+     "years_after_launch": 12.9
+    },
+    {
+     "date": "2016-06-30",
+     "years_after_launch": 13.5
+    },
+    {
+     "date": "2017-03-27",
+     "years_after_launch": 14.24
+    },
+    {
+     "date": "2018-08-02",
+     "years_after_launch": 15.59
+    },
+    {
+     "date": "2018-09-28",
+     "years_after_launch": 15.74
+    },
+    {
+     "date": "2018-10-16",
+     "years_after_launch": 15.79
+    },
+    {
+     "date": "2020-12-16",
+     "years_after_launch": 17.96
+    },
+    {
+     "date": "2021-02-24",
+     "years_after_launch": 18.15
+    }
+   ]
+  },
+  {
+   "brand": "Revlimid",
+   "generic": "Lenalidomide",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2005-12-27",
+   "application_number": "NDA021880",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 3859804788.6,
+   "part_b_spend": null,
+   "total_spend": 3859804788.6,
+   "indications": [
+    {
+     "date": "2006-06-29",
+     "years_after_launch": 0.5
+    },
+    {
+     "date": "2010-10-12",
+     "years_after_launch": 4.79
+    },
+    {
+     "date": "2011-12-21",
+     "years_after_launch": 5.98
+    },
+    {
+     "date": "2013-06-05",
+     "years_after_launch": 7.44
+    },
+    {
+     "date": "2015-02-17",
+     "years_after_launch": 9.14
+    },
+    {
+     "date": "2017-02-22",
+     "years_after_launch": 11.16
+    },
+    {
+     "date": "2017-09-15",
+     "years_after_launch": 11.72
+    },
+    {
+     "date": "2019-05-28",
+     "years_after_launch": 13.42
+    }
+   ]
+  },
+  {
+   "brand": "Lantus Solostar",
+   "generic": "Insulin Glargine,Hum.Rec.Anlog",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2000-04-20",
+   "application_number": "BLA021081",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 3157233281.8,
+   "part_b_spend": null,
+   "total_spend": 3157233281.8,
+   "indications": [
+    {
+     "date": "2003-05-01",
+     "years_after_launch": 3.03
+    },
+    {
+     "date": "2009-09-09",
+     "years_after_launch": 9.39
+    },
+    {
+     "date": "2013-10-18",
+     "years_after_launch": 13.49
+    },
+    {
+     "date": "2015-07-17",
+     "years_after_launch": 15.24
+    },
+    {
+     "date": "2019-02-27",
+     "years_after_launch": 18.86
+    }
+   ]
+  },
+  {
+   "brand": "Myrbetriq",
+   "generic": "Mirabegron",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2012-06-28",
+   "application_number": "NDA202611",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 2510288599.9,
+   "part_b_spend": null,
+   "total_spend": 2510288599.9,
+   "indications": [
+    {
+     "date": "2018-04-27",
+     "years_after_launch": 5.83
+    },
+    {
+     "date": "2021-03-25",
+     "years_after_launch": 8.74
+    }
+   ]
+  },
+  {
+   "brand": "Mounjaro",
+   "generic": "Tirzepatide",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2022-05-13",
+   "application_number": "NDA215866",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 2361384157.1,
+   "part_b_spend": null,
+   "total_spend": 2361384157.1,
+   "indications": [
+    {
+     "date": "2024-10-18",
+     "years_after_launch": 2.43
+    },
+    {
+     "date": "2024-12-20",
+     "years_after_launch": 2.61
+    },
+    {
+     "date": "2025-12-19",
+     "years_after_launch": 3.6
+    }
+   ]
+  },
+  {
+   "brand": "Symbicort",
+   "generic": "Budesonide/Formoterol Fumarate",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2006-07-21",
+   "application_number": "NDA021929",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 2004295917.7,
+   "part_b_spend": null,
+   "total_spend": 2004295917.7,
+   "indications": [
+    {
+     "date": "2009-02-27",
+     "years_after_launch": 2.61
+    },
+    {
+     "date": "2017-01-27",
+     "years_after_launch": 10.52
+    },
+    {
+     "date": "2017-09-11",
+     "years_after_launch": 11.14
+    },
+    {
+     "date": "2017-12-20",
+     "years_after_launch": 11.42
+    },
+    {
+     "date": "2026-04-27",
+     "years_after_launch": 19.77
+    }
+   ]
+  },
+  {
+   "brand": "Jakafi",
+   "generic": "Ruxolitinib Phosphate",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2011-11-16",
+   "application_number": "NDA202192",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 1940765068.5,
+   "part_b_spend": null,
+   "total_spend": 1940765068.5,
+   "indications": [
+    {
+     "date": "2013-06-12",
+     "years_after_launch": 1.57
+    },
+    {
+     "date": "2014-07-25",
+     "years_after_launch": 2.69
+    },
+    {
+     "date": "2014-12-04",
+     "years_after_launch": 3.05
+    },
+    {
+     "date": "2016-03-10",
+     "years_after_launch": 4.31
+    },
+    {
+     "date": "2017-10-10",
+     "years_after_launch": 5.9
+    },
+    {
+     "date": "2019-05-24",
+     "years_after_launch": 7.52
+    },
+    {
+     "date": "2021-09-22",
+     "years_after_launch": 9.85
+    },
+    {
+     "date": "2022-07-18",
+     "years_after_launch": 10.67
+    },
+    {
+     "date": "2022-12-19",
+     "years_after_launch": 11.09
+    },
+    {
+     "date": "2025-09-18",
+     "years_after_launch": 13.84
+    }
+   ]
+  },
+  {
+   "brand": "Invega Sustenna",
+   "generic": "Paliperidone Palmitate",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2009-07-31",
+   "application_number": "NDA022264",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1821418393.2,
+   "part_b_spend": 21319329.810000002,
+   "total_spend": 1842737723.01,
+   "indications": [
+    {
+     "date": "2012-08-29",
+     "years_after_launch": 3.08
+    },
+    {
+     "date": "2014-11-12",
+     "years_after_launch": 5.28
+    },
+    {
+     "date": "2017-12-20",
+     "years_after_launch": 8.39
+    },
+    {
+     "date": "2021-08-30",
+     "years_after_launch": 12.08
+    }
+   ]
+  },
+  {
+   "brand": "Ingrezza",
+   "generic": "Valbenazine Tosylate",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2017-04-11",
+   "application_number": "NDA209241",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 1705132722.7,
+   "part_b_spend": null,
+   "total_spend": 1705132722.7,
+   "indications": [
+    {
+     "date": "2021-04-23",
+     "years_after_launch": 4.03
+    },
+    {
+     "date": "2023-08-18",
+     "years_after_launch": 6.35
+    }
+   ]
+  },
+  {
+   "brand": "Restasis",
+   "generic": "Cyclosporine",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "1983-11-14",
+   "application_number": "NDA050574",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 1501664198.2,
+   "part_b_spend": 7551077.720000001,
+   "total_spend": 1509215275.92,
+   "indications": []
+  },
+  {
+   "brand": "Creon",
+   "generic": "Lipase/Protease/Amylase",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2009-04-30",
+   "application_number": "BLA020725",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 1466866602.5,
+   "part_b_spend": null,
+   "total_spend": 1466866602.5,
+   "indications": [
+    {
+     "date": "2010-04-30",
+     "years_after_launch": 1.0
+    },
+    {
+     "date": "2010-07-29",
+     "years_after_launch": 1.25
+    },
+    {
+     "date": "2011-07-12",
+     "years_after_launch": 2.2
+    }
+   ]
+  },
+  {
+   "brand": "Arexvy",
+   "generic": "Rsvpref3 Antigen/As01e/PF",
+   "modality": null,
+   "clock_year": null,
+   "original_approval_date": null,
+   "application_number": null,
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1387933255.9,
+   "part_b_spend": null,
+   "total_spend": 1387933255.9,
+   "indications": []
+  },
+  {
+   "brand": "Vyndamax",
+   "generic": "Tafamidis",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2019-05-03",
+   "application_number": "NDA212161",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 1349659508.2,
+   "part_b_spend": null,
+   "total_spend": 1349659508.2,
+   "indications": []
+  },
+  {
+   "brand": "Tagrisso",
+   "generic": "Osimertinib Mesylate",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2015-11-13",
+   "application_number": "NDA208065",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1231962204.0,
+   "part_b_spend": null,
+   "total_spend": 1231962204.0,
+   "indications": [
+    {
+     "date": "2017-03-30",
+     "years_after_launch": 1.38
+    },
+    {
+     "date": "2018-04-18",
+     "years_after_launch": 2.43
+    },
+    {
+     "date": "2020-05-23",
+     "years_after_launch": 4.53
+    },
+    {
+     "date": "2020-12-09",
+     "years_after_launch": 5.07
+    },
+    {
+     "date": "2020-12-18",
+     "years_after_launch": 5.1
+    },
+    {
+     "date": "2024-01-31",
+     "years_after_launch": 8.22
+    },
+    {
+     "date": "2024-02-16",
+     "years_after_launch": 8.26
+    },
+    {
+     "date": "2024-09-25",
+     "years_after_launch": 8.87
+    }
+   ]
+  },
+  {
+   "brand": "Shingrix",
+   "generic": "Varicella-Zoster Ge/As01b/PF",
+   "modality": null,
+   "clock_year": null,
+   "original_approval_date": null,
+   "application_number": null,
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1211171027.9,
+   "part_b_spend": null,
+   "total_spend": 1211171027.9,
+   "indications": []
+  },
+  {
+   "brand": "Humalog Kwikpen U-100",
+   "generic": "Insulin Lispro",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2017-12-11",
+   "application_number": "BLA209196",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1208385334.2,
+   "part_b_spend": null,
+   "total_spend": 1208385334.2,
+   "indications": []
+  },
+  {
+   "brand": "Skyrizi Pen",
+   "generic": "Risankizumab-Rzaa",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2019-04-23",
+   "application_number": "BLA761105",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1189321832.6,
+   "part_b_spend": 41263285.68,
+   "total_spend": 1230585118.28,
+   "indications": [
+    {
+     "date": "2021-04-26",
+     "years_after_launch": 2.01
+    },
+    {
+     "date": "2022-01-21",
+     "years_after_launch": 2.75
+    },
+    {
+     "date": "2022-06-16",
+     "years_after_launch": 3.15
+    },
+    {
+     "date": "2022-09-23",
+     "years_after_launch": 3.42
+    },
+    {
+     "date": "2024-06-18",
+     "years_after_launch": 5.16
+    },
+    {
+     "date": "2025-09-03",
+     "years_after_launch": 6.37
+    },
+    {
+     "date": "2026-03-06",
+     "years_after_launch": 6.87
+    }
+   ]
+  },
+  {
+   "brand": "Cabometyx",
+   "generic": "Cabozantinib S-Malate",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2012-11-29",
+   "application_number": "NDA203756",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1109315042.0,
+   "part_b_spend": null,
+   "total_spend": 1109315042.0,
+   "indications": [
+    {
+     "date": "2016-05-20",
+     "years_after_launch": 3.47
+    },
+    {
+     "date": "2017-12-19",
+     "years_after_launch": 5.05
+    },
+    {
+     "date": "2019-01-14",
+     "years_after_launch": 6.12
+    },
+    {
+     "date": "2021-01-22",
+     "years_after_launch": 8.15
+    },
+    {
+     "date": "2021-09-17",
+     "years_after_launch": 8.8
+    },
+    {
+     "date": "2022-07-14",
+     "years_after_launch": 9.62
+    },
+    {
+     "date": "2025-03-26",
+     "years_after_launch": 12.32
+    },
+    {
+     "date": "2025-09-10",
+     "years_after_launch": 12.78
+    }
+   ]
+  },
+  {
+   "brand": "Repatha Sureclick",
+   "generic": "Evolocumab",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2015-08-27",
+   "application_number": "BLA125522",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1092210722.1,
+   "part_b_spend": null,
+   "total_spend": 1092210722.1,
+   "indications": [
+    {
+     "date": "2016-07-08",
+     "years_after_launch": 0.87
+    },
+    {
+     "date": "2017-12-01",
+     "years_after_launch": 2.26
+    },
+    {
+     "date": "2021-09-24",
+     "years_after_launch": 6.08
+    }
+   ]
+  },
+  {
+   "brand": "Dupixent Pen",
+   "generic": "Dupilumab",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2017-03-28",
+   "application_number": "BLA761055",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 1081417350.8,
+   "part_b_spend": null,
+   "total_spend": 1081417350.8,
+   "indications": [
+    {
+     "date": "2018-04-10",
+     "years_after_launch": 1.03
+    },
+    {
+     "date": "2018-10-19",
+     "years_after_launch": 1.56
+    },
+    {
+     "date": "2019-03-11",
+     "years_after_launch": 1.95
+    },
+    {
+     "date": "2019-06-26",
+     "years_after_launch": 2.25
+    },
+    {
+     "date": "2020-05-26",
+     "years_after_launch": 3.16
+    },
+    {
+     "date": "2020-06-18",
+     "years_after_launch": 3.23
+    },
+    {
+     "date": "2021-06-14",
+     "years_after_launch": 4.21
+    },
+    {
+     "date": "2021-10-20",
+     "years_after_launch": 4.56
+    },
+    {
+     "date": "2022-05-20",
+     "years_after_launch": 5.14
+    },
+    {
+     "date": "2022-06-07",
+     "years_after_launch": 5.19
+    },
+    {
+     "date": "2022-09-28",
+     "years_after_launch": 5.5
+    },
+    {
+     "date": "2024-01-12",
+     "years_after_launch": 6.79
+    },
+    {
+     "date": "2024-01-25",
+     "years_after_launch": 6.83
+    },
+    {
+     "date": "2024-09-12",
+     "years_after_launch": 7.46
+    },
+    {
+     "date": "2024-09-27",
+     "years_after_launch": 7.5
+    },
+    {
+     "date": "2025-04-17",
+     "years_after_launch": 8.05
+    },
+    {
+     "date": "2025-06-18",
+     "years_after_launch": 8.22
+    },
+    {
+     "date": "2026-02-23",
+     "years_after_launch": 8.91
+    },
+    {
+     "date": "2026-04-22",
+     "years_after_launch": 9.07
+    }
+   ]
+  },
+  {
+   "brand": "Tresiba Flextouch U-200",
+   "generic": "Insulin Degludec",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2015-09-25",
+   "application_number": "BLA203314",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1047670731.2,
+   "part_b_spend": null,
+   "total_spend": 1047670731.2,
+   "indications": [
+    {
+     "date": "2016-12-16",
+     "years_after_launch": 1.23
+    },
+    {
+     "date": "2018-03-26",
+     "years_after_launch": 2.5
+    },
+    {
+     "date": "2018-08-09",
+     "years_after_launch": 2.87
+    },
+    {
+     "date": "2019-02-01",
+     "years_after_launch": 3.35
+    },
+    {
+     "date": "2019-02-27",
+     "years_after_launch": 3.43
+    },
+    {
+     "date": "2019-08-08",
+     "years_after_launch": 3.87
+    },
+    {
+     "date": "2022-07-01",
+     "years_after_launch": 6.77
+    }
+   ]
+  },
+  {
+   "brand": "Levemir Flexpen",
+   "generic": "Insulin Detemir",
+   "modality": "biologic",
+   "clock_year": 13,
+   "original_approval_date": "2005-10-19",
+   "application_number": "BLA021878",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "none",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1025556477.3,
+   "part_b_spend": null,
+   "total_spend": 1025556477.3,
+   "indications": []
+  },
+  {
+   "brand": "Opsumit",
+   "generic": "Macitentan",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2013-10-18",
+   "application_number": "NDA204410",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": true,
+   "part_d_spend": 1018837122.8,
+   "part_b_spend": null,
+   "total_spend": 1018837122.8,
+   "indications": [
+    {
+     "date": "2025-02-28",
+     "years_after_launch": 11.36
+    }
+   ]
+  },
+  {
+   "brand": "Victoza 3-Pak",
+   "generic": "Liraglutide",
+   "modality": "small molecule",
+   "clock_year": 9,
+   "original_approval_date": "2010-01-25",
+   "application_number": "NDA022341",
+   "ira_cycle": null,
+   "mfp_usd": null,
+   "in_negotiated": false,
+   "in_top_spend": true,
+   "orphan_status": "orphan_approved",
+   "serial_orphan_candidate": false,
+   "part_d_spend": 1004635145.2,
+   "part_b_spend": null,
+   "total_spend": 1004635145.2,
+   "indications": [
+    {
+     "date": "2010-12-22",
+     "years_after_launch": 0.91
+    },
+    {
+     "date": "2012-04-06",
+     "years_after_launch": 2.2
+    },
+    {
+     "date": "2016-04-22",
+     "years_after_launch": 6.24
+    },
+    {
+     "date": "2017-04-26",
+     "years_after_launch": 7.25
+    },
+    {
+     "date": "2017-08-25",
+     "years_after_launch": 7.58
+    },
+    {
+     "date": "2018-10-19",
+     "years_after_launch": 8.73
+    },
+    {
+     "date": "2019-02-01",
+     "years_after_launch": 9.02
+    },
+    {
+     "date": "2019-02-27",
+     "years_after_launch": 9.09
+    },
+    {
+     "date": "2019-06-17",
+     "years_after_launch": 9.39
+    },
+    {
+     "date": "2019-08-08",
+     "years_after_launch": 9.53
+    },
+    {
+     "date": "2020-03-25",
+     "years_after_launch": 10.16
+    },
+    {
+     "date": "2020-12-04",
+     "years_after_launch": 10.86
+    }
+   ]
+  }
+ ]
+}

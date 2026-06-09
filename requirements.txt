@@ -1,0 +1,19 @@
+# The Innovation Clock — Python dependencies (Python 3.9+; 3.11+ recommended)
+requests>=2.28
+pandas>=1.5
+numpy>=1.23
+matplotlib>=3.6
+rapidfuzz>=3.0          # CMS<->FDA fuzzy name matching
+beautifulsoup4>=4.11    # FDA orphan (OOPD) HTML parsing
+lxml>=4.9               # bs4 parser backend
+playwright>=1.40        # HTML -> PDF fact sheet (run: python -m playwright install chromium)
+markdown>=3.4           # render docs/METHODOLOGY.md into the dashboard's Methodology tab
+
+# Optional:
+#   pypdf>=4.0           # only used for QA page-count checks
+#   weasyprint>=60       # alternative PDF renderer (Playwright is the default)
+#   nbformat nbconvert ipykernel   # to (re)build/run notebooks/innovation_clock.ipynb
+#                                   # build: python build_notebook.py
+#                                   # run:   jupyter nbconvert --to notebook --execute --inplace \
+#                                   #          --ExecutePreprocessor.kernel_name=innovation-clock \
+#                                   #          notebooks/innovation_clock.ipynb

@@ -1,0 +1,128 @@
+{
+  "retrieved": "2026-06-07",
+  "method": "Compiled from primary sources (CMS, KFF, Congress.gov, CRS, Public Citizen, PhRMA, Sidley/Jones Day legal analyses) and cross-checked against the underlying documents.",
+  "facts": [
+    {
+      "topic": "IRA timing rule (pill penalty)",
+      "statement": "Under the IRA's Medicare Drug Price Negotiation Program, small-molecule drugs (FDA New Drug Application) become eligible for selection 7 years after approval, with the negotiated maximum fair price (MFP) taking effect at year 9; biologics (Biologics License Application) are eligible at year 11 with the MFP effective at year 13.",
+      "numeric_value": "7/9 yrs (small molecule) vs 11/13 yrs (biologic)",
+      "source_url": "https://www.congress.gov/crs-product/R47872",
+      "source_org": "Congressional Research Service",
+      "source_date": "2024"
+    },
+    {
+      "topic": "Pill penalty (4-year gap)",
+      "statement": "The four-year difference between when negotiated prices take effect for small molecules (year 9) and biologics (year 13) is commonly called the 'pill penalty'; critics say it creates a structural incentive to develop biologics over small-molecule pills.",
+      "numeric_value": "4-year gap",
+      "source_url": "https://www.healthlawadvisor.com/medicare-drug-price-negotiation-program-the-inflation-reduction-act-pill-penalty-and-other-ira-reforms-on-the-horizon-for-2026",
+      "source_org": "Epstein Becker Green",
+      "source_date": "2025-05-02"
+    },
+    {
+      "topic": "EPIC Act (H.R. 1492)",
+      "statement": "The Ensuring Pathways to Innovative Cures (EPIC) Act, H.R. 1492 (119th Congress), would require small-molecule drugs to have at least 11 years of market approval (matching the biologic timeline) before becoming eligible for selection, eliminating the 4-year gap.",
+      "numeric_value": "11-year selection / 13-year MFP",
+      "source_url": "https://www.congress.gov/bill/119th-congress/house-bill/1492",
+      "source_org": "U.S. Congress (Congress.gov)",
+      "source_date": "2025-02-25"
+    },
+    {
+      "topic": "EPIC Act status",
+      "statement": "H.R. 1492 (EPIC Act) was introduced February 25, 2025 with a Senate companion (S. 832); as of 2026 it remains pending and has not been enacted.",
+      "numeric_value": "Introduced Feb 25, 2025; pending",
+      "source_url": "https://murphy.house.gov/media/press-releases/murphy-introduces-legislation-eliminate-ira-pill-penalty-and-improve-small",
+      "source_org": "Office of Rep. Greg Murphy",
+      "source_date": "2025-02-25"
+    },
+    {
+      "topic": "OBBBA orphan provision",
+      "statement": "The One Big Beautiful Bill Act, signed July 4, 2025, broadened the IRA's orphan-drug exclusion from a single rare-disease indication to drugs whose only approved indication(s) are for one or more rare diseases, so 'serial orphan' drugs with multiple rare-disease indications and no non-orphan approval are exempt from negotiation.",
+      "numeric_value": "",
+      "source_url": "https://www.sidley.com/en/insights/newsupdates/2025/07/key-inflation-reduction-act-amendment-broadens-us-protection-for-orphan-drugs",
+      "source_org": "Sidley Austin LLP",
+      "source_date": "2025-07-15"
+    },
+    {
+      "topic": "OBBBA clock reset",
+      "statement": "For orphan drugs that later gain a non-orphan approval, the OBBBA resets the negotiation-eligibility clock to begin the day after the first non-orphan approval (not the original FDA approval), substantially delaying negotiation; effective for initial price applicability year 2028 and after.",
+      "numeric_value": "Clock resets to first non-orphan approval; IPAY 2028+",
+      "source_url": "https://www.jonesday.com/en/insights/2025/07/congress-expands-orphan-drug-exemptions-from-medicare-price-negotiations",
+      "source_org": "Jones Day",
+      "source_date": "2025-07-01"
+    },
+    {
+      "topic": "OBBBA orphan cost (CBO)",
+      "statement": "The Congressional Budget Office estimated the OBBBA's expanded orphan-drug exemption would cost Medicare about $8.8 billion over ten years.",
+      "numeric_value": "$8.8B over 10 years",
+      "source_url": "https://www.fiercehealthcare.com/regulatory/expanded-price-negotiation-exemption-orphan-drugs-cost-medicare-88b-over-10-years-cbo",
+      "source_org": "Fierce Healthcare (citing CBO)",
+      "source_date": "2025-07-01"
+    },
+    {
+      "topic": "Critics: pill penalty is a 'myth'",
+      "statement": "Public Citizen argues the 'pill penalty' is 'nothing more than a pharma industry myth,' citing research that venture-capital investment in small molecules has not dropped since the negotiation program passed.",
+      "numeric_value": "",
+      "source_url": "https://www.citizen.org/article/epic-act-would-be-a-multi-billion-dollar-pharma-windfall-at-the-expense-of-seniors/",
+      "source_org": "Public Citizen",
+      "source_date": "2026-04-01"
+    },
+    {
+      "topic": "Critics: EPIC would block negotiations",
+      "statement": "Public Citizen states that had the EPIC Act's delay been in effect, Medicare would have been barred from negotiating 5 of the first 10 drugs (>$37B in annual gross Part D spending) and 8 of the second 15 drugs (>$28B).",
+      "numeric_value": "5 of 10 (>$37B); 8 of 15 (>$28B)",
+      "source_url": "https://www.citizen.org/article/epic-act-would-be-a-multi-billion-dollar-pharma-windfall-at-the-expense-of-seniors/",
+      "source_org": "Public Citizen",
+      "source_date": "2026-04-01"
+    },
+    {
+      "topic": "Critics: small-molecule subset",
+      "statement": "Public Citizen further states that 6 of the 8 (75%) small-molecule drugs selected for 2026 — more than $11B in annual Medicare spending — would have been excluded under an EPIC-style delay.",
+      "numeric_value": "6 of 8 (75%); >$11B",
+      "source_url": "https://www.citizen.org/article/epic-act-would-be-a-multi-billion-dollar-pharma-windfall-at-the-expense-of-seniors/",
+      "source_org": "Public Citizen",
+      "source_date": "2026-04-01"
+    },
+    {
+      "topic": "Industry (PhRMA) framing",
+      "statement": "Industry (PhRMA/PHAR, 2023): 61% of the 31 cancer drugs approved 2006-2012 gained at least one new indication after launch, and ~40% of those arrived 7+ years out — inside the window the year-9 clock truncates.",
+      "numeric_value": "61% of 31 cancer drugs; ~40% of new indications at 7+ yrs",
+      "source_url": "https://www.prnewswire.com/news-releases/new-analysis-inflation-reduction-act-undermines-cancer-medicine-development-301840713.html",
+      "source_org": "PhRMA (Partnership for Health Analytic Research)",
+      "source_date": "2023-06"
+    },
+    {
+      "topic": "Industry projections",
+      "statement": "A University of Chicago analysis projects roughly 188 fewer small-molecule medicines as a result of the 9-vs-13 gap.",
+      "numeric_value": "~188 fewer small-molecule medicines",
+      "source_url": "https://www.healthlawadvisor.com/medicare-drug-price-negotiation-program-the-inflation-reduction-act-pill-penalty-and-other-ira-reforms-on-the-horizon-for-2026",
+      "source_org": "University of Chicago analysis (cited via Epstein Becker Green)",
+      "source_date": "2025-05-02"
+    },
+    {
+      "topic": "Independent study (NPC / Patterson 2024)",
+      "statement": "An independent, peer-reviewed study (Patterson et al., National Pharmaceutical Council, Therapeutic Innovation & Regulatory Science, 2024) found 25% of oncology drugs received their most recent subsequent indication only after they would be negotiation-eligible.",
+      "numeric_value": "25% of oncology drugs (subsequent indication after eligibility)",
+      "source_url": "https://www.npcnow.org/resources/ira-may-have-unintended-consequences-subsequent-indications-oncology-drugs-new-research",
+      "source_org": "National Pharmaceutical Council (Patterson et al.)",
+      "source_date": "2024"
+    },
+    {
+      "topic": "Independent analysis (KFF)",
+      "statement": "KFF finds that drugs which would be ineligible for negotiation under a delayed (biologic-style) timeline accounted for about two-thirds of total gross Medicare Part D spending on the first 25 selected drugs — $61 billion of $91 billion.",
+      "numeric_value": "~2/3 of Part D spend on 25 drugs ($61B of $91B)",
+      "source_url": "https://www.kff.org/medicare/the-effect-of-delaying-the-selection-of-small-molecule-drugs-for-medicare-drug-price-negotiation/",
+      "source_org": "KFF (Kaiser Family Foundation)",
+      "source_date": "2024"
+    }
+  ],
+  "cms_sources": {
+    "negotiation_program": "https://www.cms.gov/inflation-reduction-act-and-medicare/medicare-drug-price-negotiation",
+    "ipay2026_prices": "https://www.cms.gov/files/document/fact-sheet-negotiated-prices-initial-price-applicability-year-2026.pdf",
+    "ipay2027_prices": "https://www.cms.gov/files/document/fact-sheet-negotiated-prices-ipay-2027.pdf",
+    "ipay2028_selection": "https://www.cms.gov/files/document/factsheet-medicare-negotiation-selected-drug-list-ipay-2028.pdf",
+    "part_d_spending": "https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-medicaid-spending-by-drug/medicare-part-d-spending-by-drug",
+    "part_b_spending": "https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-medicaid-spending-by-drug/medicare-part-b-spending-by-drug",
+    "openfda_drugsfda": "https://api.fda.gov/drug/drugsfda.json",
+    "fda_orphan": "https://www.accessdata.fda.gov/scripts/opdlisting/oopd/"
+  }
+}
