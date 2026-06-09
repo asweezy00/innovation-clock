@@ -32,12 +32,28 @@ h2.kicker { font-size:13px; color:#1d1d1f; margin:16px 0 4px; border-bottom:1px 
 .pagebreak { break-before:page; }
 .foot { font-family:'Helvetica Neue',Arial,sans-serif; font-size:8px; color:#888; border-top:1px solid #ddd; margin-top:10px; padding-top:6px; }
 small.cite { color:#1b6ca8; }
+.byline { font-family:'Helvetica Neue',Arial,sans-serif; font-size:9.3px; color:#555; margin:1px 0 9px; }
+.byline b { color:#1d1d1f; }
+.cta { display:flex; align-items:center; justify-content:space-between; gap:14px; background:#1b6ca8;
+        border-radius:8px; padding:11px 16px; margin:2px 0 12px; }
+.cta .cta-t { font-family:'Helvetica Neue',Arial,sans-serif; color:#fff; }
+.cta .cta-t b { font-size:12px; display:block; }
+.cta .cta-t span { font-size:9.3px; opacity:.92; }
+.cta a { background:#fff; color:#1b6ca8; text-decoration:none; font-weight:700;
+          font-family:'Helvetica Neue',Arial,sans-serif; font-size:10.5px; padding:8px 15px;
+          border-radius:6px; white-space:nowrap; }
 </style></head><body>
 
 <div class="eyebrow">Medicare · Drug Pricing · Innovation Policy</div>
 <h1>The Innovation Clock</h1>
 <p class="dek">When do America's most expensive Medicare drugs earn their clinical value — and how does that timing collide
 with the Inflation Reduction Act's price-negotiation deadline?</p>
+<p class="byline">Created by <b>Abdullah Shahid</b> — Biomedical Engineering &amp; Economics/Statistics, UNC–Chapel Hill &amp; NC&nbsp;State (May&nbsp;2026)</p>
+<div class="cta">
+  <div class="cta-t"><b>Explore the interactive version →</b>
+  <span>Click any drug for its approval-to-indication timeline, Medicare spend, and negotiation clock — or compare the full cohort.</span></div>
+  <a href="https://asweezy00.github.io/innovation-clock/">Open the live dashboard ↗</a>
+</div>
 <div class="rule"></div>
 
 <div class="hero">
@@ -132,5 +148,5 @@ Medicare spending (Part&nbsp;D + Part&nbsp;B, 2023) computed from CMS Spending-b
 totals. <b>Orphan</b> status is from the real FDA Orphan Drug Designations database; the strict serial-orphan test is a documented
 heuristic. Cycle&nbsp;3 Maximum Fair Prices are not yet published. Full methodology &amp; caveats are detailed in the appendix and the live site's Methodology tab.</p>
 </div>
-<div class="foot">The Innovation Clock · built from public FDA &amp; CMS data · reproduces from <code>python -m src.run_all</code>.</div>
+<div class="foot">The Innovation Clock · Abdullah Shahid · built from public FDA &amp; CMS data · https://asweezy00.github.io/innovation-clock/</div>
 </body></html>

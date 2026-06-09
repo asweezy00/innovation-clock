@@ -76,6 +76,7 @@ def _factsheet_section(s, policy) -> str:
   <h1 class="fs-title">The Innovation Clock</h1>
   <p class="fs-dek">When do America's most expensive Medicare drugs earn their clinical value — and how does that timing
   collide with the Inflation Reduction Act's price-negotiation deadline?</p>
+  <p style="font-size:12.5px;color:#555;margin:-4px 0 12px">Created by <b style="color:#222">Abdullah Shahid</b> — Biomedical Engineering &amp; Economics/Statistics, UNC–Chapel Hill &amp; NC&nbsp;State (May&nbsp;2026)</p>
   <a class="btn-pdf" href="{PDF_HREF}" target="_blank" rel="noopener">⬇ Download the 5-page PDF fact sheet</a>
 
   <div class="fs-hero">
