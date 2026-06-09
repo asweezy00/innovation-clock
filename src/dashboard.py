@@ -164,17 +164,79 @@ def _fix_md_links(html: str) -> str:
     return re.sub(r'href="([^"]+)"', repl, html)
 
 
-def _methodology_section() -> str:
-    import markdown
-    md = METHODOLOGY_MD.read_text()
-    body = markdown.markdown(md, extensions=["extra", "tables", "sane_lists"])
-    body = _fix_md_links(body)
+def _methodology_section(s) -> str:
+    mc = s.get("modality_counts", {})
+    sm_n, bio_n = mc.get("small molecule", 0), mc.get("biologic", 0)
+    spend = _bn(s.get("negotiated_total_spend"))
     return f"""
 <div class="article">
   <div class="eyebrow">Methodology</div>
-  <p class="fs-dek">Every data-source decision, cleaning rule, and limitation behind the numbers. The full data dictionary
-  and findings log live in the <a href="{REPO_URL}/tree/main/docs" target="_blank" rel="noopener">repository</a>.</p>
-  <div class="md">{body}</div>
+  <h1 class="fs-title">How this was built</h1>
+  <p class="fs-dek">A plain-language tour of the question, the data, and the judgment calls — with enough detail to
+  show the work is reproducible and the numbers are defensible.</p>
+
+  <h2 class="fs-h2">What we set out to answer</h2>
+  <p class="md">Brand-name drugs rarely arrive fully formed. After a first approval, manufacturers keep running trials and
+  earning <b>new FDA-approved indications</b> — new diseases, new patient groups — sometimes for a decade or more. The
+  Inflation Reduction Act lets Medicare negotiate the price of a high-spend drug, but the clock starts at a different point
+  depending on what kind of molecule it is: a <b>small-molecule pill</b> can be price-negotiated at <b>year&nbsp;9</b> after
+  launch, while a <b>biologic</b> is shielded until <b>year&nbsp;13</b>. That four-year gap is the contested
+  "pill&nbsp;penalty." The question this project answers with data: <b>for the drugs Medicare has actually selected, when do
+  the new indications land relative to that clock — and what would it mean to change it?</b></p>
+
+  <h2 class="fs-h2">The data (all public, no special access)</h2>
+  <ul class="md">
+    <li><b>FDA Drugs@FDA / openFDA</b> — every drug's first approval date, whether it's a small molecule (NDA) or biologic
+    (BLA), and each later "efficacy supplement" (the FDA record that marks a new approved use).</li>
+    <li><b>CMS Medicare Part&nbsp;D &amp; Part&nbsp;B Spending by Drug</b> (2023, the latest full year) — how much Medicare
+    actually spends on each drug.</li>
+    <li><b>CMS Drug Price Negotiation fact sheets</b> — the official list of selected drugs and their negotiated prices for
+    Cycles&nbsp;1–3.</li>
+    <li><b>FDA Orphan Drug Designations</b> — which drugs treat rare diseases (used for the orphan-exemption angle).</li>
+  </ul>
+
+  <h2 class="fs-h2">How we built it</h2>
+  <p class="md"><b>1 · The cohort.</b> The headline analysis is the <b>{s.get('n_negotiated', 40)} drugs Medicare has actually
+  selected</b> for negotiation across Cycles&nbsp;1–3 ({sm_n} small molecules + {bio_n} biologics). The selected-drug lists
+  and negotiated prices are taken straight from the CMS fact sheets and verified by hand. (A broader "top-50 Medicare
+  spenders" list is carried alongside for context, but never mixed into the headline numbers.)</p>
+
+  <p class="md"><b>2 · Anchoring the timeline.</b> For each drug, "year&nbsp;0" is its <i>earliest</i> original FDA approval.
+  This matters: a quick brand search often surfaces a later reformulation, which would make a drug look younger than it is.
+  We resolve each drug to its true originating application by its active ingredient, then take the earliest approval — so
+  Imbruvica anchors to its real 2013 launch, not a 2022 reformulation.</p>
+
+  <p class="md"><b>3 · Counting new indications.</b> Each new approved use is an FDA <b>efficacy supplement</b>. We place every
+  one on the timeline as "years after first approval," giving the dots you see in the dashboard. To avoid crediting one drug
+  with another's work, a drug only counts indications for its <i>exact</i> ingredient — a single-ingredient pill does not
+  absorb the approvals of fixed-dose combination products that merely contain it. Across the {s.get('n_negotiated', 40)}
+  drugs that's <b>{s.get('n_events', 0)} new-indication events</b>.</p>
+
+  <p class="md"><b>4 · Spend.</b> A negotiated "drug" is really a brand <i>family</i> — different devices, strengths, and
+  sometimes sibling brands of the same molecule (Ozempic / Rybelsus / Wegovy). We add up the whole family so spend reflects
+  the unit Medicare actually negotiates. Part&nbsp;B (physician-administered) and Part&nbsp;D (pharmacy) spend are both
+  included. The {s.get('n_negotiated', 40)} drugs total <b>~{spend}</b> in 2023.</p>
+
+  <p class="md"><b>5 · The two policy what-ifs.</b> The <i>EPIC</i> check asks which small molecules would have been
+  <i>out of reach</i> for negotiation if their clock were pushed to year&nbsp;11 (biologics are unaffected, since they
+  already sit at year&nbsp;11). The <i>orphan</i> check applies the One Big Beautiful Bill Act's stricter "serial-orphan"
+  test — multiple rare-disease approvals and no common-disease approval — using real FDA orphan designations.</p>
+
+  <div class="fs-callout">
+    <h3>Choices that matter — stated plainly</h3>
+    <p class="md" style="margin:0">
+    <b>"New indication" is a proxy.</b> Efficacy supplements capture most new-disease approvals but can also include some
+    population or line-of-therapy expansions — a known, documented limitation that's consistent across both modalities, so
+    the small-molecule-vs-biologic comparison stays fair.<br><br>
+    <b>The data cuts both ways, on purpose.</b> Small molecules genuinely keep earning new uses inside the window the clock
+    truncates (the innovation argument), <i>and</i> equalizing the clock would pull tens of billions of high-spend drugs out
+    of negotiation (the affordability argument). Both readings come from the same dataset — we present both.<br><br>
+    <b>What we never invented.</b> Cycle&nbsp;3 negotiated prices aren't published yet, so they're left blank rather than
+    guessed. Two vaccines don't map cleanly between the FDA and CMS naming systems and are flagged, not fudged.</p>
+  </div>
+
+  <p class="md" style="margin-top:16px"><b>Reproducible end to end.</b> Every figure and statistic on this site is generated
+  by one command from cached public data — no manual spreadsheet steps — so the same inputs always produce the same numbers.</p>
 </div>
 """
 
@@ -288,8 +350,7 @@ HTML = r"""<!DOCTYPE html>
   <button class="tab" data-tab="factsheet">Fact Sheet</button>
   <button class="tab" data-tab="methodology">Methodology</button>
   <div class="right">
-    <a class="pdfmini" href="__PDF_HREF__" target="_blank" rel="noopener">⬇ PDF</a>
-    <a class="ghlink" href="__REPO_URL__" target="_blank" rel="noopener">View on GitHub ↗</a>
+    <a class="pdfmini" href="__PDF_HREF__" target="_blank" rel="noopener">⬇ PDF fact sheet</a>
   </div>
 </div>
 
@@ -509,13 +570,12 @@ def run() -> str:
     stats = json.loads(STATS_IN.read_text()) if STATS_IN.exists() else {}
     policy = json.loads(POLICY_IN.read_text())
     fs = _factsheet_section(stats, policy) if stats else "<div class='article'>Fact sheet unavailable.</div>"
-    meth = _methodology_section()
+    meth = _methodology_section(stats) if stats else "<div class='article'>Methodology unavailable.</div>"
     html = (HTML
             .replace("__DATA__", json.dumps(payload))
             .replace("__STATS__", json.dumps(stats, default=str))
             .replace("__FACTSHEET_SECTION__", fs)
             .replace("__METHODOLOGY_SECTION__", meth)
-            .replace("__REPO_URL__", REPO_URL)
             .replace("__PDF_HREF__", PDF_HREF))
     OUT.write_text(html)
     print(f"Wrote {OUT} ({len(html)//1024} KB) — tabs: Dashboard, Fact Sheet, Methodology")

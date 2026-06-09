@@ -106,8 +106,7 @@
   <button class="tab" data-tab="factsheet">Fact Sheet</button>
   <button class="tab" data-tab="methodology">Methodology</button>
   <div class="right">
-    <a class="pdfmini" href="../factsheet/Shahid_Abdullah_Innovation_Clock.pdf" target="_blank" rel="noopener">⬇ PDF</a>
-    <a class="ghlink" href="https://github.com/asweezy00/innovation-clock" target="_blank" rel="noopener">View on GitHub ↗</a>
+    <a class="pdfmini" href="../factsheet/Shahid_Abdullah_Innovation_Clock.pdf" target="_blank" rel="noopener">⬇ PDF fact sheet</a>
   </div>
 </div>
 
@@ -232,76 +231,72 @@
 <section id="tab-methodology" class="tabpanel">
 <div class="article">
   <div class="eyebrow">Methodology</div>
-  <p class="fs-dek">Every data-source decision, cleaning rule, and limitation behind the numbers. The full data dictionary
-  and findings log live in the <a href="https://github.com/asweezy00/innovation-clock/tree/main/docs" target="_blank" rel="noopener">repository</a>.</p>
-  <div class="md"><h1>Methodology</h1>
-<p>This document records every data-source decision, cleaning rule, and known limitation in the Innovation Clock pipeline. The goal is full reproducibility: <code>python -m src.run_all</code> rebuilds every artifact from cached raw responses in <code>data/raw/</code>.</p>
-<h2>1. The analytical frame (policy facts)</h2>
-<p>The IRA lets Medicare set a "Maximum Fair Price" (MFP) on high-spend, single-source drugs. Eligibility timing depends on <strong>modality</strong>, taken from the FDA application type:</p>
-<ul>
-<li><strong>Small molecule (FDA NDA)</strong> — selected at <strong>year 7</strong> after approval; MFP effective at <strong>year 9</strong>.</li>
-<li><strong>Biologic (FDA BLA)</strong> — selected at <strong>year 11</strong>; MFP effective at <strong>year 13</strong>.</li>
-</ul>
-<p>The 4-year gap is the contested <strong>"pill penalty."</strong> The <strong>EPIC Act (H.R. 1492, 119th Congress)</strong> would push small-molecule selection to year 11; as of 2026 it is <strong>pending, not enacted</strong>. The <strong>One Big Beautiful Bill Act</strong> (P.L. 119-21, signed July 4, 2025; recent CMS documents cite it as the "Working Families Tax Cuts" legislation) broadened the orphan exclusion to "serial orphan" drugs (multiple rare-disease indications, no non-orphan approval) and resets their clock to first non-orphan approval. All policy numbers cited in outputs carry a source URL — see <a href="https://github.com/asweezy00/innovation-clock/blob/main/data/raw/policy_facts.json" target="_blank" rel="noopener"><code>data/raw/policy_facts.json</code></a>, compiled from primary sources and cross-checked against the underlying documents (CMS, KFF, Congress.gov, CRS, Public Citizen, PhRMA, Sidley/Jones Day).</p>
-<h2>2. Cohort construction (<code>src/cohort.py</code>)</h2>
-<p>The cohort is the <strong>union</strong> of:</p>
-<ul>
-<li><strong>(A) IRA negotiation Cycles 1–3</strong> — 10 + 15 + 15 = 40 unique molecules (Tradjenta appears in Cycle 2 <em>and</em> as the Cycle 3 renegotiation; counted once under Cycle 2). These lists and their MFPs are <strong>curated, cited constants</strong> verified against primary CMS fact sheets and cross-checked vs KFF on 2026-06-07. They are <em>baked in</em>, not scraped at runtime, because CMS HTML/PDF layouts change and are not reliably machine-parseable — baking them in keeps reruns deterministic and offline. The MFP values are the CMS-published <strong>30-day-supply-equivalent</strong> negotiated prices.</li>
-<li><strong>(B) Top-50 Medicare Part D drugs</strong> by latest-year (2023) gross spend, fetched live from CMS and cached.</li>
-</ul>
-<p>Deduplication uses the <strong>ingredient set</strong> (normalized active ingredients) with a <strong>brand-name fallback</strong> — CMS abbreviates combination-drug ingredients (e.g. "Bictegrav/Emtricit/Tenofov Ala"), so brand matching is needed to merge e.g. Biktarvy/Trelegy/Ofev that appear in both (A) and (B). The cohort is capped near 64–70 molecules.</p>
-<p><strong>"Negotiation-eligible" approximation.</strong> For the top-50 set we use high-spend single brand-name Part D drugs (brand ≠ generic; supplies like needles/lancets excluded). True IRA eligibility also requires 7+ years on market with no generic/biosimilar competitor — not determinable from spend data alone — so the top-50 set is an <em>approximation</em> that broadens the analysis beyond the negotiated 40.</p>
-<p><strong>Canonical analysis cohort = the 40 negotiated drugs.</strong> The two CSVs and the dashboard carry the full 64-drug union, but every headline statistic, the modality table, and Figures 1–3 are computed on the 40 IRA-negotiated drugs only. The top-50 union is never mixed into the headline stats (it would otherwise pull in non-negotiated drugs like Humira and Lantus). See <code>analyze.py</code>, which prints the per-metric computation into <code>docs/FINDINGS.md</code>.</p>
-<h2>3. FDA resolution — the crux (<code>src/fetch_fda.py</code>)</h2>
-<p>Mapping a brand/generic to the right FDA application(s) is the hardest step. Findings that shaped the logic:</p>
-<ul>
-<li><strong><code>products.active_ingredients.name</code> is the reliable search key.</strong> The openFDA <code>openfda</code> block (brand/generic/substance names) is <strong>empty on many originator NDAs/BLAs</strong>, so brand/generic/substance searches <em>miss the original application</em>. Example: <code>openfda.brand_name:"ELIQUIS"</code> returns HTTP 404 (no match) and <code>openfda.generic_name:"apixaban"</code> returns only ANDA generics — but <code>products.active_ingredients.name:"APIXABAN"</code> returns the original NDA202155 (2012) plus the NDA220073 reformulation. We search by each active-ingredient token (plus brand/generic as cheap fallbacks), union the results, and <strong>keep only <code>NDA</code>/<code>BLA</code> originator applications</strong> (ANDA generics dropped).</li>
-<li><strong>Ingredient-set filter (exact equality).</strong> A candidate application is accepted if its active-ingredient set <strong>exactly equals</strong> the cohort drug's expected ingredient set, <strong>or</strong> the brand name matches. Exact equality (not subset) cuts both ways: a combination drug (Entresto = sacubitril + valsartan) must list <em>both</em> members, so valsartan-only products are excluded; and a single-ingredient drug (Jardiance = empagliflozin) does <strong>not</strong> absorb fixed-dose combinations or co-packs that merely <em>contain</em> it (Synjardy, Glyxambi, Trijardy, the Kisqali-Femara co-pack) — those products' new indications belong to them, not to the single agent. (An earlier subset rule let single agents absorb ~20 such combination-product supplements, double-counting Trijardy's 2020 supplement under both Jardiance and Tradjenta; exact matching removes them.)</li>
-<li><strong>Anchor = earliest original approval.</strong> Year 0 is the <strong>minimum <code>submission_status_date</code> among <code>submission_type == "ORIG"</code> and <code>submission_status == "AP"</code></strong> across <em>all</em> matched applications. This fixes the reformulation trap: a brand search for Imbruvica surfaces a 2022 reformulation (NDA217003), but anchoring to the earliest ORIG-AP correctly yields NDA205552 (2013-11-13).</li>
-<li><strong>New indications = efficacy supplements.</strong> Submissions with <code>submission_type == "SUPPL"</code>, <code>submission_status == "AP"</code>, and class <strong><code>EFFICACY</code></strong> (detected via <code>submission_class_code == "EFFICACY"</code> — more robust than the sometimes-absent <code>submission_class_code_description</code>). Events are <strong>deduplicated by date</strong> across all of a molecule's applications (e.g. Eliquis supplements #39 and #40 on 2025-04-17 collapse to one event). <code>years_after_launch = (event_date − anchor_date) / 365.25</code>.</li>
-<li><strong>Modality</strong> is read from the <strong>anchor application's prefix</strong>: <code>NDA</code> → small molecule (clock 9), <code>BLA</code> → biologic (clock 13).</li>
-<li><strong>Indication text</strong> is best-effort from the openFDA <code>label</code> endpoint (<code>indications_and_usage</code>); missing for some drugs.</li>
-</ul>
-<p><strong>HTTP etiquette &amp; caching.</strong> Descriptive User-Agent; ~0.3s between live calls; exponential backoff on 429/5xx; a malformed single query (HTTP 400, e.g. a combination generic with punctuation) is skipped (logged) rather than fatal, and the other search angles still resolve the drug. Every raw JSON response is cached to <code>data/raw/fda/</code>.</p>
-<p><strong>Documented FDA limits.</strong> We request openFDA's maximum of 1,000 results per query. A handful of <em>very common</em> shared ingredients (e.g. metformin, tenofovir) match more products than that, but originator resolution does not depend on an exhaustive listing — each drug is also searched by its own ingredient tokens, and combination products are excluded by the exact-ingredient-set match above, so the truncation does not affect any cohort drug's anchor or event set. Efficacy supplements are a <strong>proxy</strong> for "new indications": they capture most new-disease approvals but also some population/line-of-therapy expansions and can miss a handful of original-label indications. This bias is consistent across modalities, so cross-modality comparisons remain meaningful.</p>
-<h2>4. CMS spend (<code>src/fetch_cms.py</code>)</h2>
-<ul>
-<li><strong>UUID discovery, not hardcoding.</strong> Dataset UUIDs change yearly, so we fetch the CMS open-data catalog (<code>https://data.cms.gov/data.json</code>) and match the exact titles "Medicare Part D Spending by Drug" and "Medicare Part B Spending by Drug" (the annual, not Quarterly, datasets), reading the dataset UUID from the distribution's <code>accessURL</code>. The data-api is then paginated (<code>size=5000</code>) and every page cached to <code>data/raw/cms/</code>.</li>
-<li><strong>Latest year = 2023</strong> (series 2019–2023).</li>
-<li><strong>Part D</strong> carries per-manufacturer rows plus an <code>Mftr_Name == "Overall"</code> aggregate per SKU — we keep only the Overall rows to avoid double-counting (3,598 rows).</li>
-<li><strong>Spend = the whole negotiated brand family, not one SKU.</strong> A CMS-negotiated "drug" is a brand <em>family</em>: its Part D "Overall" spend is split across device/strength variants (Enbrel / Enbrel Mini / Enbrel SureClick; Austedo / Austedo XR) and, where CMS bundles them, across distinct brands of the same molecule (Ozempic / Rybelsus / Wegovy; NovoLog / Fiasp). We therefore <strong>sum</strong> the family: an Overall row joins a drug's unit when it is single-source (brand ≠ generic, so authorized generics and commodity rows are excluded) <strong>and</strong> its brand equals the drug's brand or a curated CMS-bundle alias, <strong>or</strong> is a device/strength variant of one carrying the <em>same</em> active ingredient (so the biphasic "NovoLog Mix 70-30" and the Kisqali-Femara co-pack, which have different ingredients, are excluded). This recovers ≈$4.6B that a single-row pick understates (e.g. Ozempic+Rybelsus+Wegovy = $10.9B vs $9.2B for the Ozempic SKU alone; Enbrel family $3.0B vs $2.1B).</li>
-<li><strong>Part B has no manufacturer column</strong> (it is HCPCS-based); a drug can span multiple HCPCS rows, so Part B spend for a drug is the <strong>sum</strong> of its matched rows.</li>
-<li><strong>Join FDA↔CMS</strong> has no shared key: we normalize names (uppercase, strip salts/forms/punctuation) and match exact-then-fuzzy (<code>rapidfuzz</code>, token-sort ratio ≥ 88). Spend is looked up in <strong>both</strong> Part D and Part B for every drug (so Part B physician-administered biologics like Orencia/Entyvio get their dominant Part B spend), and <code>total_medicare_spend = Part D + Part B</code>. Salt/form stripping covers e.g. "Dapagliflozin Propanediol" → dapagliflozin, "Nintedanib Esylate" → nintedanib.</li>
-</ul>
-<h2>5. Orphan enrichment (<code>src/fetch_orphan.py</code>)</h2>
-<p>The FDA OOPD "Search Orphan Drug Designations and Approvals" database has <strong>no JSON API</strong> and sits behind Akamai bot management. The pipeline: (1) GET the search page to obtain Akamai session cookies (<code>_abck</code>, <code>bm_sz</code>); (2) <strong>POST</strong> the ColdFusion form (<code>OOPD_Results.cfm</code>, <code>Output_Format=Detailed</code>) per drug's primary ingredient — GET is blocked with 503; (3) parse the labeled text output (<code>Generic Name</code>, <code>Orphan Designation</code>, <code>Orphan Designation Status</code>, <code>Marketing Approval Date</code>) into structured records; (4) cache the raw HTML per drug to <code>data/raw/orphan/</code>. If the site is unreachable, <code>orphan_status</code> falls back to <code>"unknown"</code> and the pipeline proceeds (orphan is enrichment, non-blocking).</p>
-<p><code>orphan_status ∈ {orphan_approved, designated_not_approved, none, unknown}</code>. <code>serial_orphan_candidate</code> = ≥2 distinct <em>approved</em> orphan indications. Validation: Imbruvica (13 distinct), Revlimid (9), Calquence (3) flag true; Eliquis flags <code>none</code> — all correct.</p>
-<p><strong>Serial-orphan precision.</strong> The OBBBA exemption requires multiple orphan indications <strong>and no approved non-orphan indication</strong>. <code>serial_orphan_candidate</code> (≥2 orphan indications) alone is over-inclusive (e.g. Enbrel, Stelara, Otezla carry orphan designations <em>plus</em> large non-orphan markets like RA/psoriasis). <code>analyze.py</code> therefore computes a <strong>strict</strong> flag: a multi-orphan drug whose FDA label indications text contains no clearly-common disease keyword. The keyword list covers common autoimmune/metabolic/CNS diseases <strong>and common (non-orphan) solid tumors</strong> (renal cell, endometrial, non-small-cell lung, colorectal, melanoma, breast, prostate, hepatocellular, ovarian, gastric, bladder, head-and-neck). This is a documented heuristic; it yields <strong>4</strong> plausible OBBBA serial-orphan drugs: <strong>Calquence, Imbruvica, Ofev, Pomalyst</strong> (all-rare leukemias/lymphomas, myeloma/Kaposi, pulmonary fibrosis). <strong>Lenvima is correctly excluded</strong> — its label includes renal cell and endometrial carcinoma, both non-orphan. <code>headline_stats.json</code> records the exclusion reason for every multi-orphan drug. Each candidate's orphan/non-orphan basis is printed in <code>docs/FINDINGS.md</code> §4.</p>
-<h2>6. Analysis (<code>src/analyze.py</code>)</h2>
-<p><strong>Canonical cohort = the 40 IRA-negotiated drugs.</strong> Every headline number, the modality table, and Figures 1–3 are computed on these 40 only (30 small molecule + 10 biologic). The broader 64-drug union (incl. top-50 Part D spenders) is reported only as context and is never mixed into the stats. <code>docs/FINDINGS.md</code> shows the explicit computation behind each headline number, regenerated on every run.</p>
-<ul>
-<li><strong>Unit of analysis matters.</strong> Item 1 ("20 of 30") counts <strong>drugs</strong> that gained ≥1 indication in the window; item 2 ("% after clock") counts <strong>indications</strong>. Different denominators.</li>
-<li><strong>Yr 7–9 window</strong> (small molecules) / <strong>yr 11–13</strong> (biologics) = <code>[clock_year − 2, clock_year]</code>. A drug is "in window" if ≥1 indication's <code>years_after_launch</code> falls in it.</li>
-<li><strong>After clock</strong>: <code>years_after_launch ≥ clock_year</code>. <strong>Back half of the pre-clock window</strong>: <code>clock_year/2 &lt; years_after_launch &lt; clock_year</code> — strictly <em>before</em> the clock, so it is disjoint from "after clock" (no boundary double-count). Both computed on the 268 efficacy-supplement events of the 40 negotiated drugs.</li>
-<li><strong>EPIC balance check — small molecules only.</strong> EPIC moves <em>only</em> the small-molecule selection clock (yr 7 → 11); biologics already sit at yr 11 and are <strong>unaffected</strong>, so they cannot be removed by EPIC. We therefore count only the <strong>30 negotiated small molecules</strong> that were &lt; 11 years past first approval at their cycle's selected-drug announcement (Cycle 1: 2023-08-29; Cycle 2: 2025-01-17; Cycle 3: 2026-01-27): <strong>19 of 30</strong> ($67.6B). Per cycle: 5/7, 8/15, 6/8. (Public Citizen's published "5 of the first 10, 8 of the next 15" counts <em>all</em> selected drugs incl. biologics; the 5 and 8 blocked are the small molecules — consistent with our count.)</li>
-</ul>
-<h2>7. Validation / sanity checks</h2>
-<ul>
-<li>Indication events dated <em>before</em> the anchor approval are dropped during extraction (reformulation/transfer artifacts), so the assembled dataset contains no pre-anchor events by construction; a defensive re-check in <code>build_dataset.py</code> confirms 0 remain.</li>
-<li>Modality is derived solely from the application prefix.</li>
-<li>Drugs with 0 resolved originator applications are flagged in the run summary (currently: Arexvy, Shingrix).</li>
-<li>62 of 64 cohort drugs resolved (97%); 64/64 have spend; 40/40 negotiated have spend.</li>
-</ul>
-<h2>8. Known limitations (do not hide)</h2>
-<ol>
-<li><strong>Efficacy supplements are a proxy</strong> for new indications (see §3).</li>
-<li><strong>Cycle 3 (IPAY 2028) MFPs are not published</strong> until ~Nov 30, 2026; <code>mfp_usd</code> is <code>null</code> for those drugs — never imputed.</li>
-<li><strong>Two vaccines unresolved</strong> (Arexvy, Shingrix): CMS lists their generic as an antigen description ("Rsvpref3 Antigen/As01e/PF") that does not map to FDA active-ingredient names; they are non-negotiated top-spend entries and are left with null FDA fields.</li>
-<li><strong>Insulin aspart (NovoLog/Fiasp)</strong> resolves as a <strong>biologic</strong> (BLA, clock 13) because FDA transitioned insulins to BLAs in March 2020; the original approval date (2000) is preserved. Mechanically correct under the application-prefix rule and clinically defensible (insulin is a biologic), but worth flagging as a modality edge case.</li>
-<li><strong>Xolair Part B classification is contested.</strong> CMS published no official per-drug Part B/Part D split for Cycle 3 (its fact sheets attach HCPCS J-codes "if applicable," including for Cosentyx and Xolair). Analyst counts differ: Avalere and Cardinal Health describe four primarily-Part B drugs (Botox, Cimzia, Orencia, Entyvio), while Milliman counts Xolair as a fifth under a "majority of gross spending" definition. We label Xolair Part B with a note; spend is looked up in both parts regardless, so totals are unaffected.</li>
-<li><strong>Top-50 "eligibility" is approximate</strong> (§2).</li>
-<li><strong>Fuzzy name matching</strong> can mis-join in principle; exact normalized matching is tried first and the threshold is conservative (≥88). No mismatches observed in the current cohort.</li>
-</ol></div>
+  <h1 class="fs-title">How this was built</h1>
+  <p class="fs-dek">A plain-language tour of the question, the data, and the judgment calls — with enough detail to
+  show the work is reproducible and the numbers are defensible.</p>
+
+  <h2 class="fs-h2">What we set out to answer</h2>
+  <p class="md">Brand-name drugs rarely arrive fully formed. After a first approval, manufacturers keep running trials and
+  earning <b>new FDA-approved indications</b> — new diseases, new patient groups — sometimes for a decade or more. The
+  Inflation Reduction Act lets Medicare negotiate the price of a high-spend drug, but the clock starts at a different point
+  depending on what kind of molecule it is: a <b>small-molecule pill</b> can be price-negotiated at <b>year&nbsp;9</b> after
+  launch, while a <b>biologic</b> is shielded until <b>year&nbsp;13</b>. That four-year gap is the contested
+  "pill&nbsp;penalty." The question this project answers with data: <b>for the drugs Medicare has actually selected, when do
+  the new indications land relative to that clock — and what would it mean to change it?</b></p>
+
+  <h2 class="fs-h2">The data (all public, no special access)</h2>
+  <ul class="md">
+    <li><b>FDA Drugs@FDA / openFDA</b> — every drug's first approval date, whether it's a small molecule (NDA) or biologic
+    (BLA), and each later "efficacy supplement" (the FDA record that marks a new approved use).</li>
+    <li><b>CMS Medicare Part&nbsp;D &amp; Part&nbsp;B Spending by Drug</b> (2023, the latest full year) — how much Medicare
+    actually spends on each drug.</li>
+    <li><b>CMS Drug Price Negotiation fact sheets</b> — the official list of selected drugs and their negotiated prices for
+    Cycles&nbsp;1–3.</li>
+    <li><b>FDA Orphan Drug Designations</b> — which drugs treat rare diseases (used for the orphan-exemption angle).</li>
+  </ul>
+
+  <h2 class="fs-h2">How we built it</h2>
+  <p class="md"><b>1 · The cohort.</b> The headline analysis is the <b>40 drugs Medicare has actually
+  selected</b> for negotiation across Cycles&nbsp;1–3 (30 small molecules + 10 biologics). The selected-drug lists
+  and negotiated prices are taken straight from the CMS fact sheets and verified by hand. (A broader "top-50 Medicare
+  spenders" list is carried alongside for context, but never mixed into the headline numbers.)</p>
+
+  <p class="md"><b>2 · Anchoring the timeline.</b> For each drug, "year&nbsp;0" is its <i>earliest</i> original FDA approval.
+  This matters: a quick brand search often surfaces a later reformulation, which would make a drug look younger than it is.
+  We resolve each drug to its true originating application by its active ingredient, then take the earliest approval — so
+  Imbruvica anchors to its real 2013 launch, not a 2022 reformulation.</p>
+
+  <p class="md"><b>3 · Counting new indications.</b> Each new approved use is an FDA <b>efficacy supplement</b>. We place every
+  one on the timeline as "years after first approval," giving the dots you see in the dashboard. To avoid crediting one drug
+  with another's work, a drug only counts indications for its <i>exact</i> ingredient — a single-ingredient pill does not
+  absorb the approvals of fixed-dose combination products that merely contain it. Across the 40
+  drugs that's <b>268 new-indication events</b>.</p>
+
+  <p class="md"><b>4 · Spend.</b> A negotiated "drug" is really a brand <i>family</i> — different devices, strengths, and
+  sometimes sibling brands of the same molecule (Ozempic / Rybelsus / Wegovy). We add up the whole family so spend reflects
+  the unit Medicare actually negotiates. Part&nbsp;B (physician-administered) and Part&nbsp;D (pharmacy) spend are both
+  included. The 40 drugs total <b>~$112.2B</b> in 2023.</p>
+
+  <p class="md"><b>5 · The two policy what-ifs.</b> The <i>EPIC</i> check asks which small molecules would have been
+  <i>out of reach</i> for negotiation if their clock were pushed to year&nbsp;11 (biologics are unaffected, since they
+  already sit at year&nbsp;11). The <i>orphan</i> check applies the One Big Beautiful Bill Act's stricter "serial-orphan"
+  test — multiple rare-disease approvals and no common-disease approval — using real FDA orphan designations.</p>
+
+  <div class="fs-callout">
+    <h3>Choices that matter — stated plainly</h3>
+    <p class="md" style="margin:0">
+    <b>"New indication" is a proxy.</b> Efficacy supplements capture most new-disease approvals but can also include some
+    population or line-of-therapy expansions — a known, documented limitation that's consistent across both modalities, so
+    the small-molecule-vs-biologic comparison stays fair.<br><br>
+    <b>The data cuts both ways, on purpose.</b> Small molecules genuinely keep earning new uses inside the window the clock
+    truncates (the innovation argument), <i>and</i> equalizing the clock would pull tens of billions of high-spend drugs out
+    of negotiation (the affordability argument). Both readings come from the same dataset — we present both.<br><br>
+    <b>What we never invented.</b> Cycle&nbsp;3 negotiated prices aren't published yet, so they're left blank rather than
+    guessed. Two vaccines don't map cleanly between the FDA and CMS naming systems and are flagged, not fudged.</p>
+  </div>
+
+  <p class="md" style="margin-top:16px"><b>Reproducible end to end.</b> Every figure and statistic on this site is generated
+  by one command from cached public data — no manual spreadsheet steps — so the same inputs always produce the same numbers.</p>
 </div>
 </section>
 

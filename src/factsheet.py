@@ -143,9 +143,9 @@ def _appendix_html(warnings: list) -> str:
     (a modality edge case); and the top-50 "negotiation-eligible" set is an approximation from spend data.</p>
   </div>
 
-  <p style="margin:10px 0 0"><b>Reproducibility.</b> Every figure and statistic regenerates from cached public data via
-  <code>python -m src.run_all</code>. The repository carries the full data dictionary, a findings log with the computation
-  behind each headline number, and the complete methodology.</p>
+  <p style="margin:10px 0 0"><b>Reproducibility.</b> Every figure and statistic regenerates from cached public data via a
+  single command, so the same inputs always produce the same numbers. A full data dictionary and a findings log showing the
+  computation behind each headline number accompany the project; both are available on request.</p>
 </section>
 
 <section class="pagebreak">
@@ -157,13 +157,14 @@ def _appendix_html(warnings: list) -> str:
   <div class="box">
     <ul>
       <li><b>Interactive dashboard:</b> {dash_html} — select any drug to see its approval-to-indication timeline against its
-      negotiation clock, with spend, modality, and orphan status.</li>
-      <li><b>Code, full methodology, and dataset:</b> {repo_html}</li>
-      <li><b>Datasets:</b> <code>innovation_clock_master.csv</code> (one row per drug × indication) and
-      <code>innovation_clock_summary.csv</code> (one row per drug), with a documented data dictionary.</li>
+      negotiation clock, with spend, modality, and orphan status; or compare the full negotiated cohort at a glance.</li>
+      <li><b>Two analysis-ready datasets:</b> <code>innovation_clock_master.csv</code> (one row per drug × indication event)
+      and <code>innovation_clock_summary.csv</code> (one row per drug), each with a documented data dictionary.</li>
+      <li><b>Fully reproducible:</b> every figure and statistic is generated from cached public data (FDA + CMS) by a single
+      command, so the same inputs always produce the same numbers. Code and full methodology available on request.</li>
     </ul>
   </div>
-  <div class="foot">Appendix · The Innovation Clock · self-contained work sample · reproduces from <code>python -m src.run_all</code></div>
+  <div class="foot">Appendix · The Innovation Clock · self-contained work sample · built from public FDA &amp; CMS data</div>
 </section>
 """
 
@@ -339,7 +340,7 @@ application type of the earliest original approval (NDA = small molecule, BLA = 
 <i>efficacy supplements</i>, a documented proxy that can include some population/line-of-therapy expansions. <b>Spend</b> = gross
 Medicare spending (Part&nbsp;D + Part&nbsp;B, {s['spend_year']}) computed from CMS Spending-by-Drug data — not CMS's official per-cycle
 totals. <b>Orphan</b> status is from the real FDA Orphan Drug Designations database; the strict serial-orphan test is a documented
-heuristic. Cycle&nbsp;3 Maximum Fair Prices are not yet published. Full pipeline + caveats: repository <code>docs/METHODOLOGY.md</code>.</p>
+heuristic. Cycle&nbsp;3 Maximum Fair Prices are not yet published. Full methodology &amp; caveats are detailed in the appendix and the live site's Methodology tab.</p>
 </div>
 <div class="foot">The Innovation Clock · built from public FDA &amp; CMS data · reproduces from <code>python -m src.run_all</code>.</div>
 </body></html>"""
